@@ -1,6 +1,6 @@
 package com.dkmk.s3.bankbook;
 
-public class BankbookDTO {
+public class BankBookDTO {
 	
 	private long bookNumber;
 	private String bookName;

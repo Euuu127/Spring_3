@@ -1,4 +1,4 @@
- package com.dkmk.s3.bankbook;
+package com.dkmk.s3.bankbook;
 
 import java.util.List;
 
@@ -13,22 +13,23 @@ import org.springframework.web.servlet.ModelAndView;
 public class BankbookController {
 	
 	@Autowired
-	private BankbookService bankbookService;
+	private BankBookService bankbookService;
 	
 	//상품 리스트
 	@RequestMapping(value = "/bankbook/bankbookList")
 	public void bankbookList(Model model)throws Exception{
 		
-		List<BankbookDTO> ar=  bankbookService.getList();
+		List<BankBookDTO> ar=  bankbookService.getList();
 		model.addAttribute("list", ar);
 		model.addAttribute("kind", "BankBook El Test");
 	}
 	
 	//상품 상세
 	@RequestMapping(value = "/bankbook/bankbookSelect")
-	public ModelAndView bankbookSelect(BankbookDTO bankbookDTO, ModelAndView modelAndView) throws Exception {
-		bankbookService.getSelect(bankbookDTO); 
-		modelAndView.addObject("dto", bankbookDTO);
+	public ModelAndView bankbookSelect(BankBookDTO bankBookDTO, ModelAndView modelAndView) throws Exception {
+		System.out.println("Num : "+bankBookDTO.getBookNumber());
+		bankBookDTO = bankbookService.getSelect(bankBookDTO);
+		modelAndView.addObject("dto", bankBookDTO);
 		modelAndView.setViewName("bankbook/bankbookSelect");
 		return modelAndView;
 	}
@@ -38,7 +39,7 @@ public class BankbookController {
 	public void bankbookAdd()throws Exception{}
 	
 	@RequestMapping(value = "/bankbook/bankbookAdd", method = RequestMethod.POST)
-	public ModelAndView bankbookAdd(BankbookDTO bankbookDTO, ModelAndView modelAndView)throws Exception{
+	public ModelAndView bankbookAdd(BankBookDTO bankBookDTO, ModelAndView modelAndView)throws Exception{
 		modelAndView.setViewName("");
 		return modelAndView;
 	}
@@ -46,18 +47,18 @@ public class BankbookController {
 	
 	//상품 수정
 	@RequestMapping(value = "/bankbook/bankbookUpdate")
-	public void bankbookUpdate(BankbookDTO bankbookDTO)throws Exception{
+	public void bankbookUpdate(BankBookDTO bankBookDTO)throws Exception{
 		
 	}
 	
 	@RequestMapping(value = "/bankbook/bankbookUpdate", method = RequestMethod.POST)
-	public ModelAndView bankbookUpdate(BankbookDTO bankbookDTO, ModelAndView modelAndView)throws Exception{
+	public ModelAndView bankbookUpdate(BankBookDTO bankBookDTO, ModelAndView modelAndView)throws Exception{
 		return modelAndView;
 	}
 	
 	//상품 삭제
 	@RequestMapping(value = "/bankbook/bankbookDelete")
-	public ModelAndView bankbookDelete(BankbookDTO bankbookDTO, ModelAndView modelAndView)throws Exception{
+	public ModelAndView bankbookDelete(BankBookDTO bankBookDTO, ModelAndView modelAndView)throws Exception{
 		return modelAndView;
 	}
 	

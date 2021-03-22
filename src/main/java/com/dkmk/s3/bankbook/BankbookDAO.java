@@ -10,9 +10,9 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class BankbookDAO {
+public class BankBookDAO {
 
-	public int setWrite(BankbookDTO bankbookDTO)throws Exception{
+	public int setWrite(BankBookDTO bankBookDTO)throws Exception{
 		//1. 로그인 정보 
 		String user="mark02";
 		String password="mark127";
@@ -29,9 +29,9 @@ public class BankbookDAO {
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
-		st.setString(1, bankbookDTO.getBookName());
-		st.setDouble(2, bankbookDTO.getBookRate());
-		st.setString(3, bankbookDTO.getBookSale());
+		st.setString(1, bankBookDTO.getBookName());
+		st.setDouble(2, bankBookDTO.getBookRate());
+		st.setString(3, bankBookDTO.getBookSale());
 		
 		int result = st.executeUpdate();
 		
@@ -43,7 +43,7 @@ public class BankbookDAO {
 	}
 
 
-	public BankbookDTO getSelect(BankbookDTO bankbookDTO)throws Exception{
+	public BankBookDTO getSelect(BankBookDTO bankBookDTO)throws Exception{
 		//1. 로그인 정보 
 		String user="mark02";
 		String password="mark127";
@@ -60,36 +60,34 @@ public class BankbookDAO {
 
 		PreparedStatement st = con.prepareStatement(sql);
 
-		st.setLong(1, bankbookDTO.getBookNumber());
+		st.setLong(1, bankBookDTO.getBookNumber());
 
 		ResultSet rs = st.executeQuery();
 
 		
 
 		if(rs.next()) {
-			bankbookDTO = new BankbookDTO();
-			bankbookDTO.setBookNumber(rs.getLong("bookNumber"));
-			bankbookDTO.setBookName(rs.getString("bookName"));
-			bankbookDTO.setBookRate(rs.getDouble("bookRate"));
-			bankbookDTO.setBookSale(rs.getString("bookSale"));
+			//bankBookDTO = new BankBookDTO();
+			bankBookDTO.setBookNumber(rs.getLong("bookNumber"));
+			bankBookDTO.setBookName(rs.getString("bookName"));
+			bankBookDTO.setBookRate(rs.getDouble("bookRate"));
+			bankBookDTO.setBookSale(rs.getString("bookSale"));
 
-		} else {
-			bankbookDTO=null;
 		}
 
 		rs.close();
 		st.close();
 		con.close();
 
-		return bankbookDTO;
+		return bankBookDTO;
 
 	}	
 
 
 	//getList
 	//bankbook table의 모든 데이트 조회 후 리턴
-	public List<BankbookDTO> getList()throws Exception{
-		ArrayList<BankbookDTO> ar = new ArrayList<BankbookDTO>();
+	public List<BankBookDTO> getList()throws Exception{
+		ArrayList<BankBookDTO> ar = new ArrayList<BankBookDTO>();
 
 		//1. 로그인 정보 
 		String user="mark02";
@@ -111,12 +109,12 @@ public class BankbookDAO {
 		System.out.println("executeQuery----------");
 		while(rs.next()) {
 			System.out.println("count");
-			BankbookDTO bankbookDTO = new BankbookDTO();
-			bankbookDTO.setBookNumber(rs.getLong("bookNumber"));
-			bankbookDTO.setBookName(rs.getString("bookName"));
-			bankbookDTO.setBookRate(rs.getDouble("bookRate"));
-			bankbookDTO.setBookSale(rs.getString("bookSale"));
-			ar.add(bankbookDTO);
+			BankBookDTO bankBookDTO = new BankBookDTO();
+			bankBookDTO.setBookNumber(rs.getLong("bookNumber"));
+			bankBookDTO.setBookName(rs.getString("bookName"));
+			bankBookDTO.setBookRate(rs.getDouble("bookRate"));
+			bankBookDTO.setBookSale(rs.getString("bookSale"));
+			ar.add(bankBookDTO);
 		}
 
 		rs.close();
