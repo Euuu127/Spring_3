@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 import javax.xml.stream.events.Namespace;
 
@@ -38,12 +39,10 @@ public class MemberDAO {
 	
 	
 	//login - id pw를 받아서 조회
-	public int memberLogin(MemberDTO memberDTO)throws Exception{
+	public List<Object> memberLogin(MemberDTO memberDTO)throws Exception{
 		
-		return sqlSession.update(NAMESPACE+".memberLogin", memberDTO);
-		
-		
-		
+		return sqlSession.selectList(NAMESPACE+".memberLogin", memberDTO);
+
 	}
 
 }

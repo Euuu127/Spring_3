@@ -10,5 +10,7 @@ import com.dkmk.s3.MyAbstractTest;
 public class MemberDAOTest extends MyAbstractTest{
 	@Autowired
 	private MemberDAO memberDAO;
+	
+	
 
 }
