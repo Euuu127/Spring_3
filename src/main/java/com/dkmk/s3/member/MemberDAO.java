@@ -31,27 +31,7 @@ public class MemberDAO {
 	//memberJoin 데이터를 받아서 DB에 insert 하는 메서드
 	public int memberJoin(MemberDTO memberDTO)throws Exception{
 
-		
-		//4. SQL
-		String sql ="insert into member values(?,?,?,?,?)";
-		
-		//5. 미리 전송
-		PreparedStatement st = con.prepareStatement(sql);
-		
-		//6. ? 세팅
-		st.setString(1, memberDTO.getId());
-		st.setString(2, memberDTO.getPw());
-		st.setString(3, memberDTO.getName());
-		st.setString(4, memberDTO.getPhone());
-		st.setString(5, memberDTO.getEmail());
-		
-		//7. 최종 전송 후 처리
-		int result = st.executeUpdate();
-		
-		//8. 해제
-		st.close();
-		con.close();
-		
+		int result = sqlSession.insert(NAMESPACE+".memberJoin", memberDTO); 
 		return result;
 		
 	}
