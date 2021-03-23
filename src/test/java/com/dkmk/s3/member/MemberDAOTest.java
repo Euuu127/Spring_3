@@ -37,7 +37,7 @@ public class MemberDAOTest extends MyAbstractTest{
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("bam");
 
-		memberDTO = memberDAO.member(memberDTO);
+		memberDTO = memberDAO.memberLogin(memberDTO);
 		
 		memberDTO.setPw("pw");
 		memberDTO.setName("ggyu");

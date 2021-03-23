@@ -5,7 +5,7 @@
     
 <mapper namespace="com.dkmk.s3.member.MemberDAO">
 	<update id="memberUpdate" parameterType="com.dkmk.s3.member.MemberDTO">
-		update member set id=#{id},pw=#{pw},name=#{name},phone=#{phone},email=#{email}
+		update member set pw=#{pw},name=#{name},phone=#{phone},email=#{email where id=#{id}
 	</update>
 	
 	<delete id="memberDelete" parameterType="com.dkmk.s3.member.MemberDTO">
