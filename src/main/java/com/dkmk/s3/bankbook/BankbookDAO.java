@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 public class BankBookDAO {
 	@Autowired 						// <- 그래서 하는 게 이거
 	private SqlSession sqlSession; //bankbookdao는 sqlsession에 의존적
-	
+
 	//final = 상수란 뜻! 더이상 바뀌지 않아, 구분하기 위해 대문자로 써
 	private final String NAMESPACE= "com.dkmk.s3.bankbook.BankBookDAO";
 
@@ -28,6 +28,9 @@ public class BankBookDAO {
 
 
 	public BankBookDTO getSelect(BankBookDTO bankBookDTO)throws Exception{
+		//long num = 1L;
+		bankBookDTO = sqlSession.selectOne(NAMESPACE+".getSelect", bankBookDTO);
+
 		return bankBookDTO;
 
 	}	
@@ -36,9 +39,8 @@ public class BankBookDAO {
 	//getList
 	//bankbook table의 모든 데이트 조회 후 리턴
 	public List<BankBookDTO> getList()throws Exception{
-		ArrayList<BankBookDTO> ar = new ArrayList<BankBookDTO>();
-		
-		return ar;
+		return sqlSession.selectList(NAMESPACE+"getList");
+
 	}
 
 }

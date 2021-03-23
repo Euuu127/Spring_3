@@ -8,9 +8,15 @@
 <!-- 여기다는 풀패키지명을.. 중복되지만 않으면 됨 -->    
 <mapper namespace="com.dkmk.s3.bankbook.BankBookDAO">
 	<insert id="setWrite" parameterType="com.dkmk.s3.bankbook.BankBookDTO"> 
-							
 		insert into bankbook values(bank_seq.nextval,#{bookName},#{bookRate},#{bookSale}) 
 	</insert>
 
+	<select id="getSelect" parameterType="com.dkmk.s3.bankbook.BankBookDTO" resultType="com.dkmk.s3.bankbook.BankBookDTO">
+		select * from bankbook where bookNumber=#{bookNumber}
+	</select>
+	
+	<select id="getList" resultType="java.util.">
+		select * from bankbook order by bookNumber desc <!-- 높은것부터 낮은순서로 정렬 -->
+	</select>
 
 </mapper> 
