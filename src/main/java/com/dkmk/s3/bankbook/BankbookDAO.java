@@ -17,7 +17,7 @@ public class BankBookDAO {
 	private SqlSession sqlSession; //bankbookdao는 sqlsession에 의존적
 	
 	//final = 상수란 뜻! 더이상 바뀌지 않아, 구분하기 위해 대문자로 써
-	private final String NAMESPACE= "com.dkmk.s3.bankbook";
+	private final String NAMESPACE= "com.dkmk.s3.bankbook.BankBookDAO";
 
 	public int setWrite(BankBookDTO bankBookDTO)throws Exception{
 		//호출하고 싶은 메서드 호출하면 돼 insert, delete, select ...
