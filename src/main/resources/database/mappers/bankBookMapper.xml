@@ -15,8 +15,12 @@
 		select * from bankbook where bookNumber=#{bookNumber}
 	</select>
 	
-	<select id="getList" resultType="java.util.">
-		select * from bankbook order by bookNumber desc <!-- 높은것부터 낮은순서로 정렬 -->
+	<select id="getList" resultType="com.dkmk.s3.bankbook.BankBookDTO">
+		select * from bankbook order by bookNumber desc 
 	</select>
+	
+	<delete id="setDelete" parameterType="com.dkmk.s3.bankbook.BankBookDTO">
+		delete bankbook where booknumber = #{bookNumber}
+	</delete>
 
 </mapper> 

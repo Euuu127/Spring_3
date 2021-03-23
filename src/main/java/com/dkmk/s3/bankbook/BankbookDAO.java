@@ -39,8 +39,13 @@ public class BankBookDAO {
 	//getList
 	//bankbook table의 모든 데이트 조회 후 리턴
 	public List<BankBookDTO> getList()throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getList");
+		return sqlSession.selectList(NAMESPACE+".getList");
 
+	}
+	
+	public int setDelete(BankBookDTO bankBookDTO)throws Exception{
+		return sqlSession.delete(NAMESPACE+".setDelete", bankBookDTO);
+		
 	}
 
 }
