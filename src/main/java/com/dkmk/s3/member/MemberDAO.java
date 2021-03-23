@@ -19,7 +19,7 @@ public class MemberDAO {
 	@Autowired 						
 	private SqlSession sqlSession;
 	
-	private final String NAMESPACE= "com.dkmk.s3.bankbook.MemberDAO";
+	private final String NAMESPACE= "com.dkmk.s3.member.MemberDAO";
 			
 	public int memberUpdate(MemberDTO memberDTO)throws Exception{
 		//id를 제외하고 나머지 수정
