@@ -32,6 +32,22 @@ public class MemberDAOTest extends MyAbstractTest{
 		memberDTO = memberDAO.memberLogin(memberDTO);
 		assertNotNull(memberDTO);
 	}
+	@Test
+	public void memberUpdateTest()throws Exception{
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("bam");
+
+		memberDTO = memberDAO.memberLogin(memberDTO);
+		
+		memberDTO.setPw("pw");
+		memberDTO.setName("ggyu");
+		memberDTO.setPhone("01011112222");
+		memberDTO.setEmail("gg@naver.com");
+
+		int result = memberDAO.memberUpdate(memberDTO);
+		assertEquals(1, result);
+		
+	}
 	
 	
 
