@@ -40,9 +40,11 @@ public class MemberDAO {
 	
 	
 	//login - id pw를 받아서 조회
-	public List<Object> memberLogin(MemberDTO memberDTO)throws Exception{
+	public MemberDTO memberLogin(MemberDTO memberDTO)throws Exception{
 		
-		return sqlSession.selectList(NAMESPACE+".memberLogin", memberDTO);
+		memberDTO = sqlSession.selectOne(NAMESPACE+".memberLogin", memberDTO);
+
+		return memberDTO;
 
 	}
 

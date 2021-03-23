@@ -11,7 +11,7 @@ public class MemberDAOTest extends MyAbstractTest{
 	@Autowired
 	private MemberDAO memberDAO;
 	
-	@Test //쪼인, 완, •̀.̫•́✧
+	//@Test
 	public void memberJoinTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("hc");
@@ -24,18 +24,12 @@ public class MemberDAOTest extends MyAbstractTest{
 		assertEquals(1, result);
 	}
 	
+	@Test
+	public void memberLoginTest()throws Exception{
+		MemberDTO memberDTO = memberDAO.memberLogin(null);
+		assertNotNull(memberDTO);
+	}
 	
 	
-//	public void memberUpdateTest() throws Exception{
-//		MemberDTO memberDTO = new MemberDTO();
-//		memberDTO.setId("bam");
-//
-//		memberDTO = memberDAO.memberLogin(memberDTO);
-//		
-//		memberDTO.setId("BUMgyu");
-//	
-//		int result = memberDAO.memberUpdate(memberDTO);
-//		assertEquals(1, result);
-//	}
 
 }
