@@ -14,26 +14,28 @@ public class MemberDAOTest extends MyAbstractTest{
 	@Test //쪼인, 완, •̀.̫•́✧
 	public void memberJoinTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("bam");
-		memberDTO.setPw("bam1");
-		memberDTO.setName("bumgyu");
+		memberDTO.setId("hc");
+		memberDTO.setPw("hc1");
+		memberDTO.setName("haechan");
 		memberDTO.setPhone("01011111111");
-		memberDTO.setEmail("bk@naver.com");
+		memberDTO.setEmail("hc@naver.com");
 		int result = memberDAO.memberJoin(memberDTO);
 		
 		assertEquals(1, result);
 	}
 	
-	public void memberUpdateTest() throws Exception{
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("bam");
-
-		memberDTO = memberDAO.memberLogin(memberDTO);
-		
-		memberDTO.setId("BUMgyu");
 	
-		int result = memberDAO.memberUpdate(memberDTO);
-		assertEquals(1, result);
-	}
+	
+//	public void memberUpdateTest() throws Exception{
+//		MemberDTO memberDTO = new MemberDTO();
+//		memberDTO.setId("bam");
+//
+//		memberDTO = memberDAO.memberLogin(memberDTO);
+//		
+//		memberDTO.setId("BUMgyu");
+//	
+//		int result = memberDAO.memberUpdate(memberDTO);
+//		assertEquals(1, result);
+//	}
 
 }
