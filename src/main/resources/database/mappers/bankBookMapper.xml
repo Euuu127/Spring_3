@@ -7,11 +7,9 @@
 
 <!-- 여기다는 풀패키지명을.. 중복되지만 않으면 됨 -->    
 <mapper namespace="com.dkmk.s3.bankbook.BankBookDAO">
-	<!-- 한 mapper안에서 id는 중복x / 다른 mapper? ㄱㅊ / dao에 잇는 메서드명 id로 쓰는게 편혀-->
 	<insert id="setWrite" parameterType="com.dkmk.s3.bankbook.BankBookDTO"> 
-							<!-- 타입하나만넣을수 있는데 (?=)#{}는다 DTO에 들어가는거니까 -->
-		<!-- ; 찍지말어 오류나 -->
-		insert into bankbook values(bank_seq.nextval, #{bookName},#{bookRate},#{bookSale}) 
+							
+		insert into bankbook values(bank_seq.nextval,#{bookName},#{bookRate},#{bookSale}) 
 	</insert>
 
 

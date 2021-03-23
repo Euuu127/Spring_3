@@ -9,7 +9,7 @@ import com.dkmk.s3.MyAbstractTest;
 							
 public class BankBookDAOTest extends MyAbstractTest {
 	
-	@Autowired //주입시켜주쉐이~
+	@Autowired 
 	private BankBookDAO bankBookDAO;
 	@Test
 	public void setWriteTest() throws Exception {
