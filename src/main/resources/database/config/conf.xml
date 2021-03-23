@@ -7,7 +7,7 @@
 	<typeAliases> <!-- DB에서 별칭주는거 -->
 	<!-- 별칭으로 주고 싶은 데이터타입을 풀패키지로 적어주기 -->
 		<typeAlias type="com.dkmk.s3.member.MemberDTO" alias="MemberDTO"/> 
-		<typeAlias type="com.dkmk.s3.bankbook.BankbookDTO" alias="BankBookDTO"/>
+		<typeAlias type="com.dkmk.s3.bankbook.BankBookDTO" alias="BankBookDTO"/>
 	</typeAliases>
 
 </configuration>
