@@ -12,49 +12,49 @@ import com.dkmk.s3.MyAbstractTest;
 public class BankBookDAOTest extends MyAbstractTest {
 	
 	@Autowired 
-	private BankBookDAO bankBookDAO;
+	private BankBookDAO bankbookDAO;
 	
 	@Test
 	public void setUpdateTest()throws Exception{
-		BankBookDTO bankBookDTO = new BankBookDTO();
-		bankBookDTO.setBookNumber(5);
+		BankBookDTO bankbookDTO = new BankBookDTO();
+		bankbookDTO.setBookNumber(5);
 
-		bankBookDTO = bankBookDAO.getSelect(bankBookDTO);
+		bankbookDTO = bankbookDAO.getSelect(bankbookDTO);
 		
-		bankBookDTO.setBookName("nct");
+		bankbookDTO.setBookName("nct");
 	
-		int result = bankBookDAO.setUpdate(bankBookDTO);
+		int result = bankbookDAO.setUpdate(bankbookDTO);
 		assertEquals(1, result);
 	}
 	
 	//@Test
 	public void setDeleteTest() throws Exception{
-		BankBookDTO bankBookDTO = new BankBookDTO();
-		bankBookDTO.setBookNumber(25);
-		int result = bankBookDAO.setDelete(bankBookDTO);
+		BankBookDTO bankbookDTO = new BankBookDTO();
+		bankbookDTO.setBookNumber(25);
+		int result = bankbookDAO.setDelete(bankbookDTO);
 		
 		assertEquals(1, result);
 	}
 	
 	@Test
 	public void getListTest()throws Exception{
-		List<BankBookDTO> ar = bankBookDAO.getList();
+		List<BankBookDTO> ar = bankbookDAO.getList();
 		assertNotEquals(0, ar.size());
 	}
 	
 	//@Test
 	public void getSelectTest()throws Exception{
-		BankBookDTO bankBookDTO = bankBookDAO.getSelect(null);
-		assertNotNull(bankBookDTO);
+		BankBookDTO bankbookDTO = bankbookDAO.getSelect(null);
+		assertNotNull(bankbookDTO);
 	}
 	
 	//@Test
 	public void setWriteTest() throws Exception {
-		BankBookDTO bankBookDTO = new BankBookDTO();
-		bankBookDTO.setBookName("Test");
-		bankBookDTO.setBookRate(0.12);
-		bankBookDTO.setBookSale("Y");
-		int result = bankBookDAO.setWrite(bankBookDTO);
+		BankBookDTO bankbookDTO = new BankBookDTO();
+		bankbookDTO.setBookName("Test");
+		bankbookDTO.setBookRate(0.12);
+		bankbookDTO.setBookSale("Y");
+		int result = bankbookDAO.setWrite(bankbookDTO);
 		
 		assertEquals(1, result);
 	}

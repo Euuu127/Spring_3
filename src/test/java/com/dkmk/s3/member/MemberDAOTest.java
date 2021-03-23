@@ -32,22 +32,27 @@ public class MemberDAOTest extends MyAbstractTest{
 		memberDTO = memberDAO.memberLogin(memberDTO);
 		assertNotNull(memberDTO);
 	}
-	@Test
-	public void memberUpdateTest()throws Exception{
+	//@Test
+	public void memberUpdate() throws Exception{
+		
 		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("bam");
-
-		memberDTO = memberDAO.memberLogin(memberDTO);
+		
+		memberDTO.setId("hc");
+		
+		//값을 모두 받아오는 list가 없으므로 전체 값 변경만 가능
+		//memberDTO = memberDAO.memberLogin(memberDTO);
 		
 		memberDTO.setPw("pw");
-		memberDTO.setName("ggyu");
+		memberDTO.setName("ddonghyuck");
 		memberDTO.setPhone("01011112222");
 		memberDTO.setEmail("gg@naver.com");
-
-		int result = memberDAO.memberUpdate(memberDTO);
-		assertEquals(1, result);
 		
+		int result = memberDAO.memberUpdate(memberDTO);
+		
+		assertEquals(1, result);
+			
 	}
+	
 	//@Test
 	public void memberDeleteTest()throws Exception{
 		MemberDTO memberDTO = new MemberDTO();
