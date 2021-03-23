@@ -14,11 +14,14 @@ public class ConnectionTest extends MyAbstractTest {
 	@Autowired
 	private DataSource dataSource;
 
+
 	//Main Branch
 
 	//Member Test
 
-	@Autowired
+
+
+	@Autowired //여기서 에러뜨면 뒤에서 해봣자 소용없으
 	private SqlSession sqlSession;
 	
 	@Test
