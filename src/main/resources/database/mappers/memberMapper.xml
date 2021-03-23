@@ -4,6 +4,12 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!-- mapper schema -->
     
 <mapper namespace="com.dkmk.s3.member.MemberDAO">
-	<insert id="memberJoin" parameterType="com.dkmk.s3.member.MemberDTO"></insert>
+	<insert id="memberJoin" parameterType="com.dkmk.s3.member.MemberDTO">
+		insert into member values(#{id},#{pw},#{name},#{phone},#{email})
+	</insert>
+	
+	<select id="memberLogin" parameterType="com.dkmk.s3.member.MemberDTO" resultType="com.dkmk.s3.member.MemberDTO">
+		select * FROM member WHERE id=#{id} and pw=#{pw}
+	</select>
 
 </mapper>
