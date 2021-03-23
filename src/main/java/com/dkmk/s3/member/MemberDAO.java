@@ -23,11 +23,11 @@ public class MemberDAO {
 			
 	public int memberUpdate(MemberDTO memberDTO)throws Exception{
 		//id를 제외하고 나머지 수정
-		return sqlSession.update(NAMESPACE+".setUpdate", memberDTO);
+		return sqlSession.update(NAMESPACE+".memberUpdate", memberDTO);
 	}
 	
 	public int memberDelete(MemberDTO memberDTO)throws Exception{
-		
+		return sqlSession.delete(NAMESPACE+".memberDelete", memberDTO);
 	}
 	
 	//memberJoin 데이터를 받아서 DB에 insert 하는 메서드

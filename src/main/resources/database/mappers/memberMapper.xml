@@ -4,11 +4,11 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!-- mapper schema -->
     
 <mapper namespace="com.dkmk.s3.member.MemberDAO">
-	<update id="setUpdate" parameterType="com.dkmk.s3.member.MemberDTO">
+	<update id="memberUpdate" parameterType="com.dkmk.s3.member.MemberDTO">
 		update member set id=#{id},pw=#{pw},name=#{name},phone=#{phone},email=#{email}
 	</update>
 	
-	<delete id="setDelete" parameterType="com.dkmk.s3.member.MemberDTO">
+	<delete id="memberDelete" parameterType="com.dkmk.s3.member.MemberDTO">
 		delete member where id = #{id}
 	</delete>
 
