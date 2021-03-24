@@ -9,19 +9,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value = "/bankbook/**")
+@RequestMapping("/bankbook/**")
 public class BankBookController {
 	
 	@Autowired
 	private BankBookService bankBookService;
 	
-	@RequestMapping(value = "bankbookList")
-	public void getList(Model model) throws Exception{
+	@RequestMapping("bankbookList")
+	public void getList(Model model)throws Exception{
 		List<BankBookDTO> ar = bankBookService.getList();
 		model.addAttribute("list", ar);
 	}
+	
 	@RequestMapping(value = "bankbookSelect")
-	public ModelAndView getSelect(BankBookDTO bankBookDTO) throws Exception{
+	public ModelAndView getSelect(BankBookDTO bankBookDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		bankBookDTO = bankBookService.getSelect(bankBookDTO);
 		
@@ -29,6 +30,5 @@ public class BankBookController {
 		mv.setViewName("bankbook/bankbookSelect");
 		return mv;
 	}
-	
 
 }
