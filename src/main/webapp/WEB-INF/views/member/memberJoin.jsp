@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>Member Join</h1>
 
 </body>
 </html>
