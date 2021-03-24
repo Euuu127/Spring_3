@@ -3,7 +3,7 @@ package com.dkmk.s3.member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dkmk.s3.member.MemberDAO;
+
 
 @Service
 public class MemberService {

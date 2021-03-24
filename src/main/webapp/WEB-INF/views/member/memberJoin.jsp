@@ -7,7 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Member Join</h1>
-
+	<h1>Member Join Page</h1>
+		<form action="memberJoin" method="post">
+		ID <input type="text" name="id"><br>
+		PW <input type="password" name="pw"><br>
+		Name <input type="text" name="name"><br>
+		Email <input type="text" name="email"><br>
+		Phone <input type="text" name="phone"><br>
+		<button>Join</button>
+	</form>
 </body>
 </html>
