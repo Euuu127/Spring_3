@@ -27,8 +27,7 @@
 				<td>${dto.accountNumber}</td>		
 				<td>${dto.accountBalance}</td>	
 				<td>${dto.accountDate}</td>	
-				<td>${dto.bookNumber}</td>	
-				<td></td>	
+				<td>${dto.bookNumber}</td>		
 			</tr>
 		</c:forEach>
 		</tbody>
