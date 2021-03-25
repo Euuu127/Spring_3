@@ -17,6 +17,20 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@RequestMapping(value = "memberUpdate")
+	public void memberUpdate()throws Exception{
+	
+	}
+	
+	@RequestMapping(value = "memberUpdate", method = RequestMethod.POST)
+	public String memberUpdate(MemberDTO memberDTO, HttpSession session)throws Exception{
+		int result = memberService.memberUpdate(memberDTO);
+		if(result>0) {
+			session.setAttribute("member", memberDTO);
+		}
+		return "redirect:../";		
+	}
+	
 	@RequestMapping(value = "memberDelete")
 	public String memberDelete(HttpSession session)throws Exception{
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member"); 
@@ -25,7 +39,6 @@ public class MemberController {
 		//db에서 삭제는 되지만 session에 남아있음
 		//session에서 자동 로그아웃 시켜주자
 		session.invalidate();
-	
 		return "redirect:../";
 	}
 	
