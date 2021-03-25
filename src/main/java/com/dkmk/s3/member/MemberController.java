@@ -1,5 +1,7 @@
 package com.dkmk.s3.member;
 
+import java.net.Authenticator.RequestorType;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +17,26 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@RequestMapping(value = "memberDelete")
+	public String memberDelete(HttpSession session)throws Exception{
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member"); 
+								//object타입으로 나오니까 dto로 형변환
+		int result = memberService.memberDelete(memberDTO); 
+		//db에서 삭제는 되지만 session에 남아있음
+		//session에서 자동 로그아웃 시켜주자
+		session.invalidate();
+	
+		return "redirect:../";
+	}
+	
 	@RequestMapping("memberPage")
 	public void memberPage()throws Exception{
 		
 	}
 	
 	@RequestMapping("memberLogout")
-	public String memeberLogout(HttpSession httpSession)throws Exception{
-		httpSession.invalidate(); //세션의 유지시간을 0으로 만들겠다
+	public String memeberLogout(HttpSession session)throws Exception{
+		session.invalidate(); //세션의 유지시간을 0으로 만들겠다
 		return "redirect:../";
 	}
 	
