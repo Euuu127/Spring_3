@@ -20,14 +20,15 @@
 		</thead>
 		
 		<tbody>
-		<c:forEach items="${list}" var="dto">
+			<c:forEach items="${list}" var="account">
 			<tr>
-				<td>${dto.accountNumber}</td>		
-				<td>${dto.accountDate}</td>	
-				<td>${dto.accountBalance}</td>	
+				<td>${account.accountNumber}</td>
+				<td>${account.accountDate}</td>
+				<td>${account.accountBalance}</td>
 			</tr>
-		</c:forEach>
+			</c:forEach>
 		</tbody>
+	
 	</table>
 </body>
 </html>

@@ -23,7 +23,7 @@ public class AccountController {
 		MemberDTO memberDTO = (MemberDTO)httpSession.getAttribute("member");
 		AccountDTO accountDTO = new AccountDTO();
 		accountDTO.setId(memberDTO.getId());  //꺼내서집어넣는 이과정을 서비스에서 해도 돼
-		List<AccountDTO> ar = accountService.getList(null);
+		List<AccountDTO> ar = accountService.getList(accountDTO);
 		model.addAttribute("list", ar);
 		
 		
