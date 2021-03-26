@@ -62,6 +62,65 @@
   <p>Footer</p>
 </div>
 
+<!-- 
+	기능
+	글리스트 - 누구나 접근 가능
+	상세보기 - 누구나 접근 가능, 글리스트에서 제목 클릭
+	글 수정 - 관리자만 접근 가능
+	글 삭제 - 관리자만 접근 가능
+	글 작성 - 관리자만 접근 가능
+	
+		noticeMapper
+	backend /com.dkmk.s3.notice
+		
+		NoticeDTO
+		
+		NoticeDAO
+			getList		: 글 리스트
+			getSelect	: 글 상세보기
+			setInsert	: 글 작성
+			setUpdate	: 글 수정
+			setDelete	: 글 삭제
+			setHitupdate: 조회수 1증가
+		
+		NoticeService
+			getList		: 글 리스트
+			getSelect	: 글 상세보기 (dao select와 hitupdate 같이 호출하는거)
+			setInsert	: 글 작성
+			setUpdate	: 글 수정
+			setDelete	: 글 삭제
+					
+		NoticeController
+			getList		: 글 리스트
+			getSelect	: 글 상세보기
+			setInsert	: 글 작성*2
+			setUpdate	: 글 수정*2 /하나는get 하나는post
+			setDelete	: 글 삭제
+	
+	
+	
+	frontend
+		/WEB-INF/views/notice/*.jsp
+		
+		글 리스트
+		/notice/noticeList		GET		noticeList.jsp
+		글 상세보기
+		/notice/noticeSelect	GET		noticeSelect.jsp
+		글 작성
+		/notice/noticeInsert	GET		noticeInsert.jsp
+		/notice/noticeInsert	POST	(작성끝나면)글리스트로 이동
+		글 수정
+		/notice/noticeUpdate	GET		noticeUpdate.jsp
+		/notice/noticeUpdate	POST	(업뎃끝나면)글리스트로 이동
+		글 삭	제
+		/notice/noticeDelete	GET		(삭제끝나면)글리스트로 이동
+		
+		
+		
+		
+
+ -->
+
 
 
 
