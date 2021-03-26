@@ -18,6 +18,15 @@ public class AccountController {
 	@Autowired
 	private AccountService accountService;
 	
+	@RequestMapping("accountInsert")
+	public String setInsert(AccountDTO accountDTO, HttpSession httpSession)throws Exception{
+		MemberDTO memberDTO = (MemberDTO)httpSession.getAttribute("member");
+		accountDTO.setId(memberDTO.getId());
+		int result = accountService.setInsert(accountDTO);
+		return "redirect:./accountList";
+		
+	}
+	
 	@RequestMapping("accountList")
 	public void getList(HttpSession httpSession, Model model)throws Exception{
 		MemberDTO memberDTO = (MemberDTO)httpSession.getAttribute("member");
