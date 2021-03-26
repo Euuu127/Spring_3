@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,18 +8,14 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- meta : 웹브라우저한테 알려주는 설명 -->
+
 <c:import url="../template/bootStrap.jsp"></c:import>
-
-
-<title>Insert title here</title>
+<title>BankBook</title>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
+	<h1>BankBook List</h1>
 
-
-	<h1>BankBookList</h1>
-	
 	<table>
 		<thead>
 			<tr>
@@ -28,18 +24,18 @@
 				<th>Sale</th>
 			</tr>
 		</thead>
-		
+
 		<tbody>
-		<c:forEach items="${list}" var="dto">
-			<tr>
-				<td><a href="./bankbookSelect?bookNumber=${dto.bookNumber}">${dto.bookName}</a></td>
-				<td>${dto.bookRate}</td>
-				<td>${dto.bookSale}</td>
-			</tr>
-		</c:forEach>	
+			<c:forEach items="${list}" var="dto">
+				<tr>
+					<td><a href="./bankbookSelect?bookNumber=${dto.bookNumber}">${dto.bookName}</a></td>
+					<td>${dto.bookRate}</td>
+					<td>${dto.bookSale}</td>
+				</tr>
+			</c:forEach>
 		</tbody>
-	
+
 	</table>
-	
+
 </body>
 </html>
