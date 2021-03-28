@@ -28,7 +28,7 @@ public class NoticeDAOTest extends MyAbstractTest {
 		assertNotNull(noticeDTO);
 	}
 	
-	//@Test
+	@Test //지금 6으로 
 	public void setInsertTest()throws Exception{
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setNoticeTitle("Dunk Shot");
@@ -38,7 +38,7 @@ public class NoticeDAOTest extends MyAbstractTest {
 		assertEquals(1, result);
 	}
 	
-	@Test
+	//@Test
 	public void setUpdateTest()throws Exception{
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setNoticeNum(2);
@@ -46,8 +46,15 @@ public class NoticeDAOTest extends MyAbstractTest {
 		noticeDTO.setNoticeContents("난 앞으로 찔러 좌우 Bruce Lee");
 		int result = noticeDAO.setUpdate(noticeDTO);
 		assertEquals(1, result);
+	}
+	
+	//@Test
+	public void setDeleteTest()throws Exception{
+		NoticeDTO noticeDTO = new NoticeDTO();
+		noticeDTO.setNoticeNum(5); //2번은 안지워지는 이유... 시퀀스라?
+		int result = noticeDAO.setDelete(noticeDTO);
 		
-		
+		assertEquals(1, result);
 	}
 
 }
