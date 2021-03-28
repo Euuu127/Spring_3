@@ -23,5 +23,7 @@
  		where noticeNum=#{noticeNum}
  	</update>
  
- 
+ 	<delete id="setDelete" parameterType="NoticeDTO">
+ 	 	delete notice where noticeNum=#{noticeNum}
+ 	</delete>
  </mapper>

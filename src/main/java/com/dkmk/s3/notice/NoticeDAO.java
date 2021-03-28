@@ -42,6 +42,12 @@ public class NoticeDAO {
 		return result;
 	}
 	
+//	//조회수
+//	public int setHitUpdate(NoticeDTO noticeDTO)throws Exception{
+//		int result=sqlSession.update(NAMESPACE+"setHitUpdate", noticeDTO);
+//		return result;
+//	}
+//	
 	
 
 }
