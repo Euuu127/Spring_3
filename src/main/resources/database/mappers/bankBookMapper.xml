@@ -20,7 +20,7 @@
 		select * from bankbook where bookNumber=#{bookNumber}
 	</select>
 	
-	<select id="getList" resultType="com.dkmk.s3.bankbook.BankBookDTO">
+	<select id="getList" resultType="com.dkmk.s3.bankbook.BankBookDTO"> 
 		select * from bankbook order by bookNumber desc
 	</select>
 	
