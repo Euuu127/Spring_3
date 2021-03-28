@@ -28,7 +28,7 @@ public class NoticeDAOTest extends MyAbstractTest {
 		assertNotNull(noticeDTO);
 	}
 	
-	@Test //지금 6으로 
+	//@Test //지금 6으로 
 	public void setInsertTest()throws Exception{
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setNoticeTitle("Dunk Shot");
