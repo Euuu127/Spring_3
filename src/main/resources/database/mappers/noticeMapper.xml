@@ -5,8 +5,8 @@
     
  <mapper namespace= "com.dkmk.s3.notice.NoticeDAO">
  	
- 	<select id="getList" resultType="com.dkmk.s3.notice.NoticeDTO">
- 		select * from notice order by noticenum desc
+ 	<select id="getList" parameterType="NoticeDTO" resultType="NoticeDTO">
+ 		select * from notice
  	</select>
  
  

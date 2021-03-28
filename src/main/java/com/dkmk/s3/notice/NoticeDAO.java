@@ -11,7 +11,7 @@ public class NoticeDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE = "com.dkmk.s3.notice.NoticeDAO";
+	private final String NAMESPACE = "com.dkmk.s3.notice.NoticeDAO.";
 	
 	//글리스트
 	public List<NoticeDTO> getList()throws Exception {		//여기 ()안에 noticedto 받아와야되나?

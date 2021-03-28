@@ -7,7 +7,9 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class NoticeDAOTest {
+import com.dkmk.s3.MyAbstractTest;
+
+public class NoticeDAOTest extends MyAbstractTest {
 
 	@Autowired
 	private NoticeDAO noticeDAO;
