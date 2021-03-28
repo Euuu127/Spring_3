@@ -27,7 +27,7 @@ public class AccountController {
 		
 	}
 	
-	@RequestMapping("accountList")
+	@RequestMapping("accountList")	//계좌정보라서 일정한 시간 지나거나 Web browser를 종료하면 destroy되는 세션
 	public void getList(HttpSession httpSession, Model model)throws Exception{
 		MemberDTO memberDTO = (MemberDTO)httpSession.getAttribute("member");
 		AccountDTO accountDTO = new AccountDTO();

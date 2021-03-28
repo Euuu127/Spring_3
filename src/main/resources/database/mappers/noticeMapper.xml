@@ -8,6 +8,20 @@
  	<select id="getList" parameterType="NoticeDTO" resultType="NoticeDTO">
  		select * from notice
  	</select>
+ 	
+ 	<select id="getSelect" parameterType="NoticeDTO" resultType="NoticeDTO">
+ 		select * from notice where noticeNum=#{noticeNum}
+ 	</select>
+ 	
+ 	<insert id="setInsert" parameterType="NoticeDTO">
+ 		insert into notice values(notice_seq.nextval, #{noticeTitle}, #{noticeWriter}, #{noticeContents},
+ 		0, sysdate)
+ 	</insert>
+ 	
+ 	<update id="setUpdate" parameterType="NoticeDTO">
+ 		update notice set noticeTitle=#{noticeTitle}, noticeContents=#{noticeContents}
+ 		where noticeNum=#{noticeNum}
+ 	</update>
  
  
  </mapper>
