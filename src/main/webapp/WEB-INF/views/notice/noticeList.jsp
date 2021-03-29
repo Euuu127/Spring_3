@@ -20,9 +20,9 @@
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
+					<th>Num</th>
 					<th>Title</th>
 					<th>Writer</th>
-					<th>Contents</th>
 					<th>Hit</th>
 					<th>Date</th>
 				</tr>
@@ -30,25 +30,29 @@
 			<tbody>
 				<c:forEach items="${list}" var="dto">
 					<tr>
+						<td>${dto.noticeNum}</td>
 						<td><a href="./noticeSelect?noticeNum=${dto.noticeNum}">${dto.noticeTitle}</a></td>
 						<td>${dto.noticeWriter}</td>
-						<td>${dto.noticeContents}</td>
 						<td>${dto.noticeHit}</td>
 						<td>${dto.noticeDate}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		
-		<c:catch>
-	<c:if test="${member.id eq 'admin'}">
-		<a href="./noticeInsert?noticeTitle=${dto.noticeTitle}">새글쓰기</a> <!-- con에 써둔거 -->
-		
-	</c:if>
-	</c:catch>
-	
-	</div>
-	
-	
+</div>
+
+<div class="container">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+   
+   <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+   
+    <li class="page-item"><a class="page-link" href="./noticeList?curPage=${i}">${i}</a></li>
+   </c:forEach>
+   
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</div>
+
 </body>
 </html>

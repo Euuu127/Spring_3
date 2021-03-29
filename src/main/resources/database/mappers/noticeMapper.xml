@@ -4,9 +4,17 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!-- mapper schema -->
     
  <mapper namespace="com.dkmk.s3.notice.NoticeDAO">
+ 
+ 	<select id="getTotalCount" resultType="Long">
+ 		select count(noticenum) from notice
+ 	</select>
  	
-	<select id="getList" resultType="NoticeDTO">
-		select * from notice
+	<select id="getList" resultType="NoticeDTO" parameterType="Pager">
+		select * from 
+			(select rownum R, n.* from
+				(select * from notice where noticeNum>0 order by noticeNum desc) N)
+		where R between #{startRow} and #{lastRow}
+
 	</select>
  	
  	<select id="getSelect" parameterType="NoticeDTO" resultType="NoticeDTO">

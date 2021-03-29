@@ -13,13 +13,14 @@ public class NoticeDAOTest extends MyAbstractTest {
 
 	@Autowired
 	private NoticeDAO noticeDAO;
-	
+
 	//@Test
 	public void getListTest()throws Exception{
 		List<NoticeDTO> ar = noticeDAO.getList();
 		assertNotEquals(0, ar.size());
+		//assertEquals(데이터수, ar.size());
 	}
-	
+
 	//@Test
 	public void getSelectTest()throws Exception{
 		NoticeDTO noticeDTO = new NoticeDTO();
@@ -27,17 +28,23 @@ public class NoticeDAOTest extends MyAbstractTest {
 		noticeDTO =noticeDAO.getSelect(noticeDTO);
 		assertNotNull(noticeDTO);
 	}
-	
-	//@Test //지금 6으로 
+
+	@Test //지금 6으로 
 	public void setInsertTest()throws Exception{
-		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setNoticeTitle("Dunk Shot");
-		noticeDTO.setNoticeWriter("admin");
-		noticeDTO.setNoticeContents("주문을 외워보자 야발라바히야 야발라바히야");
-		int result = noticeDAO.setInsert(noticeDTO);
-		assertEquals(1, result);
+		for(int i=0;i<120;i++) {
+			NoticeDTO noticeDTO = new NoticeDTO();
+			noticeDTO.setNoticeTitle("test Title"+i);
+			noticeDTO.setNoticeWriter("test Writer"+i);
+			noticeDTO.setNoticeContents("test con"+i);
+			int result = noticeDAO.setInsert(noticeDTO);
+			if(i%10==0) {
+				Thread.sleep(500);
+
+			}
+		}
+		//assertEquals(1, result);
 	}
-	
+
 	//@Test
 	public void setUpdateTest()throws Exception{
 		NoticeDTO noticeDTO = new NoticeDTO();
@@ -47,13 +54,13 @@ public class NoticeDAOTest extends MyAbstractTest {
 		int result = noticeDAO.setUpdate(noticeDTO);
 		assertEquals(1, result);
 	}
-	
+
 	//@Test
 	public void setDeleteTest()throws Exception{
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setNoticeNum(5); //2번은 안지워지는 이유... 시퀀스라?
 		int result = noticeDAO.setDelete(noticeDTO);
-		
+
 		assertEquals(1, result);
 	}
 

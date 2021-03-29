@@ -1,10 +1,13 @@
 package com.dkmk.s3.notice;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.dkmk.s3.util.Pager;
 
 @Repository
 public class NoticeDAO {
@@ -13,9 +16,18 @@ public class NoticeDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.dkmk.s3.notice.NoticeDAO.";
 	
-	//글리스트
-	public List<NoticeDTO> getList()throws Exception {		
-		return sqlSession.selectList(NAMESPACE+"getList"); 
+	
+	public Long getTotalCount()throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getTotalCount");
+	}
+	
+	public List<NoticeDTO> getList(Pager pager)throws Exception{
+		
+		return sqlSession.selectList(NAMESPACE+"getList", pager);
+	}
+	
+	public int setInsert(NoticeDTO noticeDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"setInsert", noticeDTO);
 	}
 	
 	//셀렉트
@@ -24,11 +36,6 @@ public class NoticeDAO {
 		return noticeDTO;
 	}
 	
-	//글쓰기
-	public int setInsert(NoticeDTO noticeDTO)throws Exception{
-		int result= sqlSession.insert(NAMESPACE+"setInsert", noticeDTO);
-		return result;
-	}
 	
 	//수정
 	public int setUpdate(NoticeDTO noticeDTO)throws Exception{
