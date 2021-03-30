@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <c:import url="./template/bootStrap.jsp"></c:import>
-
+<link rel="stylesheet" href="./resources/css/test.css">
 <title>Home</title>
 </head>
 <body>
@@ -49,9 +49,9 @@
       <p>Some text..</p>
       <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
       <br>
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
-      <div class="fakeimg">Fake Image</div>
+      <h2>MARK IS...</h2>
+      <h5>soooooooooooooo cute</h5>
+      <div class="fakeimg"><img alt="cute mark pic" src="./resources/images/cuty.jpg"></div>
       <p>Some text..</p>
       <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
     </div>
@@ -124,10 +124,10 @@
  -->
 
 
-
-
-
-
+<script type="text/javascript">
+	alert('•̀.̫•́✧');
+</script>
+<script type="text/javascript" src="./resources/js/test.js"></script>
 
 </body>
 </html>

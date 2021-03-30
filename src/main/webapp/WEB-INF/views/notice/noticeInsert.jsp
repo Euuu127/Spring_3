@@ -19,10 +19,14 @@
 		<h2 class="mt-4">Notice Insert Page</h2>
 
 		<form action="./noticeInsert" method="post">
-		Title <input type="text" name="title"  value="${notice.noticeTitle}"><br>
-		Writer <input type="text" name="writer" readonly="readonly" value="${member.id}"><br>
-		Contents <input type="text" name="contents" value="${notice.noticeContents}"><br>
-		<button type="submit" class="btn btn-primary">Submit</button>
+			Title <input type="text" name="title" value="${notice.noticeTitle}"><br>
+			Writer <input type="text" name="writer" readonly="readonly"
+				value="${member.id}"><br>
+			<div class="form-group">
+				<label for="comment">Comment:</label>
+				<textarea class="form-control" rows="5" id="contents" name="contents"></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
 

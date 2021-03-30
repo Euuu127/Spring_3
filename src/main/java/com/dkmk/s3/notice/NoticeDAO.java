@@ -22,7 +22,6 @@ public class NoticeDAO {
 	}
 	
 	public List<NoticeDTO> getList(Pager pager)throws Exception{
-		
 		return sqlSession.selectList(NAMESPACE+"getList", pager);
 	}
 	

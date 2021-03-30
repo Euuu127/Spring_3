@@ -51,15 +51,16 @@ public class BankBookDAOTest extends MyAbstractTest {
 	@Test
 	public void setWriteTest() throws Exception {
 		
-		for(int i=0;i<200;i++ ) {
-		BankBookDTO bankbookDTO = new BankBookDTO();
-		bankbookDTO.setBookName("Test");
-		bankbookDTO.setBookRate(0.12);
-		bankbookDTO.setBookSale("Y");
-		int result = bankbookDAO.setWrite(bankbookDTO);
-		if(i %10 ==0) {
-		Thread.sleep(500); }
-		}	
+		for(int i=0;i<200;i++) {
+			BankBookDTO bankBookDTO = new BankBookDTO();
+			bankBookDTO.setBookName("BookName"+i);
+			bankBookDTO.setBookRate(0.12);
+			bankBookDTO.setBookSale("Y");
+			int result = bankbookDAO.setWrite(bankBookDTO);
+			if(i%10 ==0) {
+				Thread.sleep(500);
+			}
+		}
 		//assertEquals(1, result);
 		System.out.println("종료");
 	}

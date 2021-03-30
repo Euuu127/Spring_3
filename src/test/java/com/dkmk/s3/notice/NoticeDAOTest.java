@@ -16,9 +16,9 @@ public class NoticeDAOTest extends MyAbstractTest {
 
 	//@Test
 	public void getListTest()throws Exception{
-		List<NoticeDTO> ar = noticeDAO.getList();
-		assertNotEquals(0, ar.size());
-		//assertEquals(데이터수, ar.size());
+	//	List<NoticeDTO> ar = noticeDAO.getList();
+	//	assertNotEquals(0, ar.size());;
+		
 	}
 
 	//@Test
