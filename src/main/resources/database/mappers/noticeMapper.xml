@@ -2,36 +2,73 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!-- mapper schema -->
-    
- <mapper namespace="com.dkmk.s3.notice.NoticeDAO">
- 
- 	<select id="getTotalCount" resultType="Long">
- 		select count(noticenum) from notice
- 	</select>
- 	
-	<select id="getList" resultType="NoticeDTO" parameterType="Pager">
-		select * from 
-			(select rownum R, n.* from
-				(select * from notice where noticeNum>0 order by noticeNum desc) N)
+
+<mapper namespace="com.dkmk.s3.notice.NoticeDAO">
+
+	<select id="getTotalCount" resultType="Long"
+		parameterType="Pager">
+		select count(noticenum) from notice
+		where
+		<choose>
+			<when test="kind == 'Writer'">
+				noticewriter
+			</when>
+			<when test="kind== 'Contents'">
+				noticecontents
+			</when>
+			<otherwise>
+				noticetitle
+			</otherwise>
+		</choose>
+		like '%'||#{search}||'%' and noticeNum>0
+	</select>
+
+	<select id="getList" resultType="NoticeDTO"
+		parameterType="Pager">
+		select * from
+		(select rownum R, n.* from
+		(select * from notice where
+		<choose>
+			<when test="kind == 'Writer'">
+				noticewriter
+			</when>
+			<when test="kind== 'Contents'">
+				noticecontents
+			</when>
+			<otherwise>
+				noticetitle
+			</otherwise>
+
+		</choose>
+
+		like '%'||#{search}||'%' and noticeNum>0 order by noticeNum desc) N)
 		where R between #{startRow} and #{lastRow}
 
 	</select>
- 	
- 	<select id="getSelect" parameterType="NoticeDTO" resultType="NoticeDTO">
- 		select * from notice where noticeNum=#{noticeNum}
- 	</select>
- 	
- 	<insert id="setInsert" parameterType="NoticeDTO">
- 		insert into notice values(notice_seq.nextval, #{noticeTitle}, #{noticeWriter}, #{noticeContents},
- 		0, sysdate)
- 	</insert>
- 	
- 	<update id="setUpdate" parameterType="NoticeDTO">
- 		update notice set noticeTitle=#{noticeTitle}, noticeContents=#{noticeContents}
- 		where noticeNum=#{noticeNum}
- 	</update>
- 
- 	<delete id="setDelete" parameterType="NoticeDTO">
- 	 	delete notice where noticeNum=#{noticeNum}
- 	</delete>
- </mapper>
+
+	<select id="getSelect" parameterType="NoticeDTO"
+		resultType="NoticeDTO">
+		select * from notice where noticeNum=#{noticeNum}
+	</select>
+
+	<insert id="setInsert" parameterType="NoticeDTO">
+		insert into notice
+		values(notice_seq.nextval, #{noticeTitle},
+		#{noticeWriter},
+		#{noticeContents},
+		0, sysdate)
+	</insert>
+
+	<update id="setUpdate" parameterType="NoticeDTO">
+		update notice set
+		noticeTitle=#{noticeTitle},
+		noticeContents=#{noticeContents}
+		where
+		noticeNum=#{noticeNum}
+	</update>
+
+	<delete id="setDelete" parameterType="NoticeDTO">
+		delete notice where
+		noticeNum=#{noticeNum}
+	</delete>
+</mapper>
