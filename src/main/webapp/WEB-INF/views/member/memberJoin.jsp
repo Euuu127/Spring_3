@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,7 @@
 	<div class="container mt-2">
 		<h2 class="mt-4">Member Join Page</h2>
 
-		<form action="./memberJoin" method="post">
+		<form id="frm" action="./memberJoin" method="post">
 			<div class="form-group">
 				<label for="id">ID</label> <input type="text" class="form-control"
 					id="id" name="id">
@@ -41,21 +42,22 @@
 			</div>
 			<div class="form-group">
 				<label for="name">Name</label> <input type="text"
-					class="form-control" id="name" name="name">
+					class="form-control etc" id="name" name="name">
 			</div>
 
 			<div class="form-group">
 				<label for="email">Email</label> <input type="text"
-					class="form-control" id="email" name="email"> We'll never
+					class="form-control etc" id="email" name="email"> We'll never
 				share your email with anyone else.
 			</div>
 			<div class="form-group">
 				<label for="phone">Phone</label> <input type="text"
-					class="form-control" id="phone" name="phone">
+					class="form-control etc" id="phone" name="phone">
 			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
-			<button type="button" class="btn btn-primary" value="JOIN">Submit</button>
+			<input type="button" class="btn btn-primary" id="btn" value="JOIN">
+			
 		</form>
+			
 	</div>
 	<script type="text/javascript" src="../resources/js/memberJoin.js"></script>
 </body>

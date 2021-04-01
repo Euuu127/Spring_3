@@ -18,7 +18,7 @@
 	<div class="container mt-2">
 		<h2 class="mt-4">Notice Insert Page</h2>
 
-		<form action="./noticeInsert" method="post">
+		<form id="frm" action="./noticeInsert" method="post">
 			Title <input type="text" name="title" value="${notice.noticeTitle}"><br>
 			Writer <input type="text" name="writer" readonly="readonly"
 				value="${member.id}"><br>
@@ -26,10 +26,10 @@
 				<label for="comment">Comment:</label>
 				<textarea class="form-control" rows="5" id="contents" name="contents"></textarea>
 			</div>
-			<button type="submit" class="btn btn-primary" onclick="insertCheck()">Submit</button>
-			<input type="button" value="WRITE" class="btn btn-primary" onclick="insertCheck()">
+			
+			<input type="button" id="btn" value="WRITE" class="btn btn-primary" onclick="insertCheck()">
 		</form>
 	</div>
-<script type="text/javascript" src="../resources/js/insertCheck.js"></script>
+<script type="text/javascript" src="../resources/js/insertWrite.js"></script>
 </body>
 </html>
