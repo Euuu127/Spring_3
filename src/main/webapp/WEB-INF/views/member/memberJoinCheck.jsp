@@ -15,71 +15,58 @@
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
 		<h1>Member Join Check Page</h1>
-
+<div class="form-check">
+ 		<label class="form-check-label">
+   		<input type="checkbox" class="form-check-input" id="all" value="">전체동의
+  		</label>
+	</div>
+	
+	
+	<div class="form-check">
+ 		<label class="form-check-label">
+   		<input type="checkbox" class="form-check-input check" value="">동의
+  		</label>
+	</div>
+	
+	<div class="jumbotron">
+  		<h1>Bootstrap Tutorial</h1>
+  		<p>Bootstrap is the most popular HTML, CSS...</p>
+	</div>
 		<div class="form-check">
-			<label class="form-check-label"> <input type="checkbox"
-				class="form-check-input" id="all" value="">전체 동의
-			</label>
-		</div>
-
-		<div class="form-check">
-			<label class="form-check-label"> <input type="checkbox"
-				class="form-check-input" value="">동의
-			</label>
-		</div>
-
-
-		<div class="jumbotron">
-			<h1>Bootstrap Tutorial</h1>
-			<p>Bootstrap is the most popular HTML, CSS...</p>
-		</div>
-
-
-		<div class="form-check">
-			<label class="form-check-label"> <input type="checkbox"
-				class="form-check-input" value="">동의
-			</label>
-		</div>
-
-
-		<div class="jumbotron">
-			<h1>Bootstrap Tutorial</h1>
-			<p>Bootstrap is the most popular HTML, CSS...</p>
-		</div>
-
-
-
-
-
-
-		<div class="form-check">
-			<label class="form-check-label"> <input type="checkbox"
-				class="form-check-input" value="">동의
-			</label>
-		</div>
-
-
-		<div class="jumbotron">
-			<h1>Bootstrap Tutorial</h1>
-			<p>Bootstrap is the most popular HTML, CSS...</p>
-		</div>
-
-
-
-		<div class="form-check">
-			<label class="form-check-label"> <input type="checkbox"
-				class="form-check-input" value="">동의
-			</label>
-		</div>
-
-
-		<div class="jumbotron">
-			<h1>Bootstrap Tutorial</h1>
-			<p>Bootstrap is the most popular HTML, CSS...</p>
-		</div>
-
-
-		<button class="btn-danger" onclick="check()">JOIN</button>
+ 		<label class="form-check-label">
+   		<input type="checkbox" class="form-check-input check" value="">동의
+  		</label>
+	</div>
+	
+	<div class="jumbotron">
+  		<h1>Bootstrap Tutorial</h1>
+  		<p>Bootstrap is the most popular HTML, CSS...</p>
+	</div>
+	
+	<div class="form-check">
+ 		<label class="form-check-label">
+   		<input type="checkbox" class="form-check-input check" value="">동의
+  		</label>
+	</div>
+	
+	<div class="jumbotron">
+  		<h1>Bootstrap Tutorial</h1>
+  		<p>Bootstrap is the most popular HTML, CSS...</p>
+	</div>
+	
+	<div class="form-check">
+ 		<label class="form-check-label">
+   		<input type="checkbox" class="form-check-input check" value="">동의
+  		</label>
+	</div>
+	
+	<div class="jumbotron">
+  		<h1>Bootstrap Tutorial</h1>
+  		<p>Bootstrap is the most popular HTML, CSS...</p>
+	</div>
+	
+	<button class="btn btn-danger">JOIN</button>
+		
 		<script type="text/javascript"
 			src="../resources/js/memberJoinCheck.js"></script>
 
