@@ -1,6 +1,7 @@
 package com.dkmk.s3.member;
 
 import java.net.Authenticator.RequestorType;
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
@@ -76,9 +77,20 @@ public class MemberController {
 	public void memberJoin()throws Exception{}
 	
 	@RequestMapping(value="memberJoin", method = RequestMethod.POST)
-	public String memberJoin(MemberDTO memberDTO)throws Exception{
-		int result = memberService.memberJoin(memberDTO);
-		return "redirect:../";
+	public String memberJoin(MemberDTO memberDTO, Model model)throws Exception{
+	//	int result = memberService.memberJoin(memberDTO);
+		Random random = new Random();
+		int result = random.nextInt(2);
+		
+		String message = "회원가입 실패";
+		String path = "./memberJoin";
+		if(result>0) {
+			message="회원가입 성공";
+			path = "../";
+		}
+		model.addAttribute("msg", message);
+		model.addAttribute("path", path);
+		return "common/commonResult";
 	}
 
 }

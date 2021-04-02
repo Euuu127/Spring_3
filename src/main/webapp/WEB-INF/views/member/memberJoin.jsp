@@ -54,11 +54,11 @@
 				<label for="phone">Phone</label> <input type="text"
 					class="form-control etc" id="phone" name="phone">
 			</div>
-			<input type="button" class="btn btn-primary" id="btn" value="JOIN">
+			<input type="submit" class="btn btn-primary" id="btn" value="JOIN">
 			
 		</form>
 			
 	</div>
-	<script type="text/javascript" src="../resources/js/memberJoin.js"></script>
+<!-- 	<script type="text/javascript" src="../resources/js/memberJoin.js"></script> -->
 </body>
 </html>
