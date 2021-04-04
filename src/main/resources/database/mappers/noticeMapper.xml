@@ -3,24 +3,24 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!-- mapper schema -->
 
-<mapper namespace="com.dkmk.s3.notice.NoticeDAO">
+<mapper namespace="com.dkmk.s3.board.notice.NoticeDAO">
 
 	<select id="getTotalCount" resultType="Long"
 		parameterType="Pager">
-		select count(noticenum) from notice
+		select count(num) from notice
 		where
 		<choose>
 			<when test="kind == 'Writer'">
-				noticewriter
+				writer
 			</when>
 			<when test="kind== 'Contents'">
-				noticecontents
+				contents
 			</when>
 			<otherwise>
-				noticetitle
+				title
 			</otherwise>
 		</choose>
-		like '%'||#{search}||'%' and noticeNum>0
+		like '%'||#{search}||'%' and num>0
 	</select>
 
 	<select id="getList" resultType="NoticeDTO"
@@ -30,45 +30,45 @@
 		(select * from notice where
 		<choose>
 			<when test="kind == 'Writer'">
-				noticewriter
+				writer
 			</when>
 			<when test="kind== 'Contents'">
-				noticecontents
+				contents
 			</when>
 			<otherwise>
-				noticetitle
+				title
 			</otherwise>
 
 		</choose>
 
-		like '%'||#{search}||'%' and noticeNum>0 order by noticeNum desc) N)
+		like '%'||#{search}||'%' and num>0 order by num desc) N)
 		where R between #{startRow} and #{lastRow}
 
 	</select>
 
-	<select id="getSelect" parameterType="NoticeDTO"
+	<select id="getSelect" parameterType="BoardDTO"
 		resultType="NoticeDTO">
-		select * from notice where noticeNum=#{noticeNum}
+		select * from notice where num=#{num}
 	</select>
 
 	<insert id="setInsert" parameterType="NoticeDTO">
 		insert into notice
-		values(notice_seq.nextval, #{noticeTitle},
-		#{noticeWriter},
-		#{noticeContents},
+		values(notice_seq.nextval, #{title},
+		#{writer},
+		#{contents},
 		0, sysdate)
 	</insert>
 
 	<update id="setUpdate" parameterType="NoticeDTO">
 		update notice set
-		noticeTitle=#{noticeTitle},
-		noticeContents=#{noticeContents}
+		title=#{title},
+		contents=#{contents}
 		where
-		noticeNum=#{noticeNum}
+		num=#{num}
 	</update>
 
 	<delete id="setDelete" parameterType="NoticeDTO">
 		delete notice where
-		noticeNum=#{noticeNum}
+		num=#{num}
 	</delete>
 </mapper>

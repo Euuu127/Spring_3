@@ -26,11 +26,11 @@
 			<tbody>
 				
 					<tr>
-						<td>${dto.noticeTitle}</td>
-						<td>${dto.noticeWriter}</td>
-						<td>${dto.noticeContents}</td>
-						<td>${dto.noticeHit}</td>
-						<td>${dto.noticeDate}</td>
+						<td>${dto.title}</td>
+						<td>${dto.writer}</td>
+						<td>${dto.contents}</td>
+						<td>${dto.reghit}</td>
+						<td>${dto.date}</td>
 					</tr>
 				
 			</tbody>
@@ -38,8 +38,8 @@
 	
 	<c:catch>
 	<c:if test="${member.id eq 'admin'}">
-	<a href="./noticeUpdate?noticeTitle=${dto.noticeTitle}">수정하기</a>
-	<a href="./noticeDelete?noticeTitle=${dto.noticeTitle}">삭제하기</a>
+	<a href="./noticeUpdate?noticeTitle=${dto.title}">수정하기</a>
+	<a href="./noticeDelete?noticeTitle=${dto.title}">삭제하기</a>
 	</c:if>
 	</c:catch>
 </body>
