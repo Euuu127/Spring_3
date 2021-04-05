@@ -16,7 +16,7 @@
 
 
 	<div class="container">
-		<h2>QNA List</h2>
+		<h2>${board} List</h2>
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
@@ -31,7 +31,13 @@
 				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td>${dto.num}</td>
-						<td><a href="./${board}Select?noticeNum=${dto.num}">${dto.title}</a></td>
+						<td>
+						<a href="./${board}Select?noticeNum=${dto.num}">
+						<c:if test="${board eq 'qna'}">
+						<c:forEach begin="1" end="${dto.depth}">--</c:forEach>
+						</c:if>
+						${dto.title}
+						</a></td>
 						<td>${dto.writer}</td>
 						<td>${dto.hit}</td>
 						<td>${dto.regdate}</td>

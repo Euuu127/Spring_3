@@ -6,8 +6,15 @@
 
 <mapper namespace="com.dkmk.s3.board.qna.QnaDAO">
 
-	<select id="getList" resultType="QnaDTO">
-		select * from qna order by num desc
+	<select id="getList" resultType="QnaDTO" parameterType="Pager">
+		select * from
+			(select rownum R, Q.* from
+				(select * from qna order by ref desc, step asc) Q)
+		<!-- where R between #{startRow} and #{lastRow} -->
+	</select>
+	
+	<select id="setInsert" resultType="QnaDTO" parameterType="BoardDTO">
+	
 	</select>
 
 </mapper>

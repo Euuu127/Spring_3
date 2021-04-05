@@ -16,12 +16,11 @@ public class QnaDAO implements BoardDAO {
 	@Autowired
 	private SqlSession sqlSession;
 
-	private final String NAMESPACE="com.dkmk.s3.board.qna.QnaDAO";
+	private final String NAMESPACE="com.dkmk.s3.board.qna.QnaDAO.";
 	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
-		
-		return sqlSession.selectList(NAMESPACE+"getList");
+		return sqlSession.selectList(NAMESPACE+"getList", pager);
 	}
 
 	@Override
@@ -45,7 +44,7 @@ public class QnaDAO implements BoardDAO {
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert(NAMESPACE+"setInsert", boardDTO);
 	}
 
 	@Override
