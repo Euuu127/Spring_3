@@ -50,7 +50,7 @@
 	</div>
 
 	
-<%--	<div class="container">
+	<div class="container">
  		<ul class="pagination">
 			<c:if test="${pager.pre}">
 				<li class="page-item"><a class="page-link"
@@ -66,8 +66,8 @@
 				<li class="page-item"><a class="page-link"
 					href="./noticeList?curPage=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">Next</a></li>
 			</c:if>
-		</ul> --%>
-<!-- 
+		</ul> 
+
 		<div class="input-group mt-3 mb-3">
 			<form action="./noticeList" class="form-inline">
 				<div class="input-group-prepend">
@@ -83,7 +83,7 @@
 					<button class="btn btn-success" type="submit">Search</button>
 				</div>
 			</form>
-		</div> -->
+		</div> 
 		<a href="./${board}Insert" class="btn btn-primary" role="button">Write</a>
 	</div>
 </body>

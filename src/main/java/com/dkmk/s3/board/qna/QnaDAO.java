@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.dkmk.s3.board.BoardDAO;
 import com.dkmk.s3.board.BoardDTO;
-import com.dkmk.s3.util.Pager;
+import com.dkmk.s3.util.Pager_backup;
 
 @Repository
 public class QnaDAO implements BoardDAO {
@@ -18,13 +18,22 @@ public class QnaDAO implements BoardDAO {
 
 	private final String NAMESPACE="com.dkmk.s3.board.qna.QnaDAO.";
 	
+	
+	public int setReplyUpdate(QnaDTO qnaDTO)throws Exception{
+		return sqlSession.update(NAMESPACE+"setReplyUpdate", qnaDTO);
+	}
+	
+	public int setReply(QnaDTO qnaDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"setReply", qnaDTO);
+	}
+	
 	@Override
-	public List<BoardDTO> getList(Pager pager) throws Exception {
+	public List<BoardDTO> getList(Pager_backup pager) throws Exception {
 		return sqlSession.selectList(NAMESPACE+"getList", pager);
 	}
 
 	@Override
-	public long getTotalCount(Pager pager) throws Exception {
+	public long getTotalCount(Pager_backup pager) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}

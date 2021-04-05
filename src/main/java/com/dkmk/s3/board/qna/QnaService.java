@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.dkmk.s3.board.BoardDTO;
 import com.dkmk.s3.board.BoardService;
-import com.dkmk.s3.util.Pager;
+import com.dkmk.s3.util.Pager_backup;
 
 @Service
 public class QnaService implements BoardService {
@@ -15,8 +15,26 @@ public class QnaService implements BoardService {
 	@Autowired
 	private QnaDAO qnaDAO;
 	
+	public int setReply(QnaDTO qnaDTO)throws Exception{
+		//부모글의 ref steop depth 조회
+		BoardDTO boardDTO = qnaDAO.getSelect(qnaDTO);
+		QnaDTO parentDto = (QnaDTO)boardDTO;
+		System.out.println(parentDto.getRef());
+		System.out.println(parentDto.getStep());
+		System.out.println(parentDto.getDepth());
+		
+		qnaDTO.setRef(parentDto.getRef());
+		qnaDTO.setStep(parentDto.getStep()+1);
+		qnaDTO.setDepth(parentDto.getDepth()+1);
+		
+		int result = qnaDAO.setReplyUpdate(parentDto);
+		result = qnaDAO.setReply(qnaDTO);
+		
+		return result;
+	}
+	
 	@Override
-	public List<BoardDTO> getList(Pager pager) throws Exception {
+	public List<BoardDTO> getList(Pager_backup pager) throws Exception {
 		// TODO Auto-generated method stub
 		return qnaDAO.getList(pager);
 	}

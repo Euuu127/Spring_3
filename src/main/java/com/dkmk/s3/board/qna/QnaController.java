@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dkmk.s3.board.BoardDTO;
-import com.dkmk.s3.util.Pager;
+import com.dkmk.s3.util.Pager_backup;
 
 @Controller
 @RequestMapping("/qna/**")
@@ -19,6 +19,14 @@ public class QnaController {
 	
 	@Autowired
 	private QnaService qnaService;
+	
+	@PostMapping("qnaReply")
+	public ModelAndView setReply(QnaDTO qnaDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = qnaService.setReply(qnaDTO);
+		mv.setViewName("redirect:./qnaList");
+		return mv;
+	}
 	
 	@GetMapping("qnaReply")
 	public ModelAndView setReply()throws Exception{
@@ -40,7 +48,7 @@ public class QnaController {
 	}
 	
 	@GetMapping("qnaList")
-	public ModelAndView getList(Pager pager)throws Exception{
+	public ModelAndView getList(Pager_backup pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<BoardDTO> ar = qnaService.getList(pager);
 		mv.addObject("list", ar);

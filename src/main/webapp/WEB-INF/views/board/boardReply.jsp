@@ -18,6 +18,7 @@
 	<div class="container">
 		<h2>${board}Reply form</h2>
 		<form id="frm" action="./${board}Reply" method="post">
+			<input type="hidden" name="num" value="${param.num}">
 			<div class="form-group">
 				<label for="writer">Writer:</label>
 				<input type="text"
