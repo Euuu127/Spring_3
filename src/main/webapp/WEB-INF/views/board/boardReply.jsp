@@ -16,15 +16,17 @@
 	<c:import url="../template/header.jsp"></c:import>
 
 	<div class="container">
-		<h2>${board}form</h2>
-		<form id="frm" action="./${board}Insert" method="post">
+		<h2>${board}Reply form</h2>
+		<form id="frm" action="./${board}Reply" method="post">
 			<div class="form-group">
-				<label for="writer">Writer:</label> <input type="text"
+				<label for="writer">Writer:</label>
+				<input type="text"
 					readonly="readonly" value="${member.id}" class="form-control"
 					id="writer" name="writer">
 			</div>
 			<div class="form-group">
-				<label for="title">Title:</label> <input type="text"
+				<label for="title">Title:</label>
+				<input type="text"
 					class="form-control" id="title" name="title">
 			</div>
 

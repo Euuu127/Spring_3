@@ -27,15 +27,17 @@
 					<th>Date</th>
 				</tr>
 			</thead>
+			
 			<tbody>
 				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td>${dto.num}</td>
 						<td>
-						<a href="./${board}Select?noticeNum=${dto.num}">
-						<c:if test="${board eq 'qna'}">
+						<a href="./${board}Select?num=${dto.num}">
+						
+						<c:catch>
 						<c:forEach begin="1" end="${dto.depth}">--</c:forEach>
-						</c:if>
+						</c:catch>
 						${dto.title}
 						</a></td>
 						<td>${dto.writer}</td>
@@ -48,8 +50,8 @@
 	</div>
 
 	
-	<div class="container">
-<%-- 		<ul class="pagination">
+<%--	<div class="container">
+ 		<ul class="pagination">
 			<c:if test="${pager.pre}">
 				<li class="page-item"><a class="page-link"
 					href="./noticeList?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">Previous</a></li>
@@ -65,7 +67,7 @@
 					href="./noticeList?curPage=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">Next</a></li>
 			</c:if>
 		</ul> --%>
-
+<!-- 
 		<div class="input-group mt-3 mb-3">
 			<form action="./noticeList" class="form-inline">
 				<div class="input-group-prepend">
@@ -81,7 +83,7 @@
 					<button class="btn btn-success" type="submit">Search</button>
 				</div>
 			</form>
-		</div>
+		</div> -->
 		<a href="./${board}Insert" class="btn btn-primary" role="button">Write</a>
 	</div>
 </body>

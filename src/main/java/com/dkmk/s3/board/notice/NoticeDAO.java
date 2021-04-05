@@ -20,7 +20,7 @@ public class NoticeDAO implements BoardDAO {
 	
 	@Override
 	public long getTotalCount(Pager pager)throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"getTotalCount", pager); //0?
+		return 0;
 	}
 	
 	@Override

@@ -20,15 +20,36 @@ public class QnaController {
 	@Autowired
 	private QnaService qnaService;
 	
-	@GetMapping("qnaList")
-	public ModelAndView getList(Pager pager)throws Exception{
-		ModelAndView mv= new ModelAndView();
-		List<BoardDTO> ar = qnaService.getList(pager);
-		mv.addObject("list", ar);
-		mv.setViewName("board/boardList");
-		
+	@GetMapping("qnaReply")
+	public ModelAndView setReply()throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("board/boardReply");
+		mv.addObject("board", "qna");
+	
 		return mv;
 	}
+	
+	@GetMapping("qnaSelect")
+	public ModelAndView getSelect(BoardDTO boardDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boardDTO = qnaService.getSelect(boardDTO);
+		mv.addObject("board", "qna");
+		mv.addObject("dto", boardDTO);
+		mv.setViewName("board/boardSelect");
+		return mv;
+	}
+	
+	@GetMapping("qnaList")
+	public ModelAndView getList(Pager pager)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<BoardDTO> ar = qnaService.getList(pager);
+		mv.addObject("list", ar);
+		mv.addObject("board", "qna");
+		mv.setViewName("board/boardList");
+		
+		return mv;	
+	}
+	
 	@GetMapping("qnaInsert")
 	public ModelAndView setInsert()throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -37,11 +58,13 @@ public class QnaController {
 		
 		return mv;
 	}
+	
 	@PostMapping("qnaInsert")
 	public ModelAndView setInsert(BoardDTO boardDTO)throws Exception{
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView(); 
 		int result = qnaService.setInsert(boardDTO);
 		mv.setViewName("redirect:./qnaList");
 		return mv;
 	}
+
 }

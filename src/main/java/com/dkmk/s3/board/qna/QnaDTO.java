@@ -9,6 +9,7 @@ public class QnaDTO extends BoardDTO{ //상속!
 	private long ref;
 	private long step;
 	private long depth;
+	
 	public long getRef() {
 		return ref;
 	}
