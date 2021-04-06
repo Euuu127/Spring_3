@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.dkmk.s3.board.BoardDTO;
 import com.dkmk.s3.board.BoardService;
+import com.dkmk.s3.util.Pager;
 import com.dkmk.s3.util.Pager_backup;
 
 @Service
@@ -34,15 +35,22 @@ public class QnaService implements BoardService {
 	}
 	
 	@Override
-	public List<BoardDTO> getList(Pager_backup pager) throws Exception {
-		// TODO Auto-generated method stub
+	public List<BoardDTO> getList(Pager pager) throws Exception {
+		//1. row
+		pager.makeRow();
+		
+		//2. pageing
+		long totalCount = qnaDAO.getTotalCount(pager);
+		pager.makeNum(totalCount);
+	
 		return qnaDAO.getList(pager);
 	}
 
+	
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		int result =qnaDAO.setHitUpdate(boardDTO);
+		int result = qnaDAO.setHitUpdate(boardDTO);
 		return qnaDAO.getSelect(boardDTO);
 	}
 
@@ -55,12 +63,15 @@ public class QnaService implements BoardService {
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return qnaDAO.setUpdate(boardDTO);
 	}
 
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return qnaDAO.setDelete(boardDTO);
 	}
+
+
+	
 }

@@ -84,6 +84,92 @@ public class Pager {
 		}
 	}
 	
+
+	public long getPerPage() {
+		return perPage;
+	}
+
+	public void setPerPage(long perPage) {
+		this.perPage = perPage;
+	}
+
+	public long getPerBlock() {
+		return perBlock;
+	}
+
+	public void setPerBlock(long perBlock) {
+		this.perBlock = perBlock;
+	}
+
+	public long getCurPage() {
+		return curPage;
+	}
+
+	public void setCurPage(long curPage) {
+		this.curPage = curPage;
+	}
+
+
+
+	public long getStartRow() {
+		return startRow;
+	}
+
+	public void setStartRow(long startRow) {
+		this.startRow = startRow;
+	}
+
+	public long getLastRow() {
+		return lastRow;
+	}
+
+	public void setLastRow(long lastRow) {
+		this.lastRow = lastRow;
+	}
+
+	public long getTotalPage() {
+		return totalPage;
+	}
+
+	public void setTotalPage(long totalPage) {
+		this.totalPage = totalPage;
+	}
+
+	public long getStartNum() {
+		return startNum;
+	}
+
+	public void setStartNum(long startNum) {
+		this.startNum = startNum;
+	}
+
+	public long getLastNum() {
+		return lastNum;
+	}
+
+	public void setLastNum(long lastNum) {
+		this.lastNum = lastNum;
+	}
+
+	public boolean isPre() {
+		return pre;
+	}
+
+	public void setPre(boolean pre) {
+		this.pre = pre;
+	}
+
+	public boolean isNext() {
+		return next;
+	}
+
+	public void setNext(boolean next) {
+		this.next = next;
+	}
+	
+	
+	//------------------- 검색----------------------
+	
 	private String kind; //검색할 column명 담은 변수
 	private String search; //검색어 담은 변수
 	
