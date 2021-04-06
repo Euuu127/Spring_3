@@ -21,31 +21,24 @@
 	<button class="b">BUTTON</button>
 	<button id="btn" class="b">CLICK</button>
 	<button id="btn2" class="b">CLICK2</button>
-	<h1 id="t">v5</h1>
+	<h1 id="t">version 3</h1>
 	<ol id="result">
 		<li>A</li>
 	</ol>
-	
+
 	<select id="mon">
-		
+
 	</select>
 
 
 	<script type="text/javascript">
-	$("btn2").click(function(){
-		$("#result").append('<li>GO</li>');
-	});
-	
-	$("btn").click(function(){
-		
-		for(let i=1;i<13;i++){
-			$("#mon").append("<option>"+i+"</option>")
+		$("#btn2").click(function() {
+			$("#result").prepend('<li>GO</li>');
+		});
+
+		for (let i = 1; i < 13; i++) {
+			$("#mon").append("<option>" + i + "</option>");
 		}
-		
-	}
-	
-	
-	
 	</script>
 
 
