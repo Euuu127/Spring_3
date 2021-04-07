@@ -47,5 +47,6 @@
 	</div>
 
 	<script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
+	<script type="text/javascript" src="../resources/jquery/fileAdd.js"></script>
 </body>
 </html>
