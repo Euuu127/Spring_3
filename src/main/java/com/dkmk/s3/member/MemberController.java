@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/member/**")
@@ -77,10 +78,13 @@ public class MemberController {
 	public void memberJoin()throws Exception{}
 	
 	@RequestMapping(value="memberJoin", method = RequestMethod.POST)
-	public String memberJoin(MemberDTO memberDTO, Model model)throws Exception{
-	//	int result = memberService.memberJoin(memberDTO);
-		Random random = new Random();
-		int result = random.nextInt(2);
+	public String memberJoin(MemberDTO memberDTO, MultipartFile avator, Model model)throws Exception{
+		int result = memberService.memberJoin(memberDTO, avator);
+	
+		System.out.println(avator.getName()); //파라미터명
+		System.out.println(avator.getOriginalFilename()); //upload할 때 파일명
+		System.out.println(avator.getSize()); //파일의 크기 (byte)
+		System.out.println(avator.isEmpty()); //파일의 존재 유무 있음F 없음T
 		
 		String message = "회원가입 실패";
 		String path = "./memberJoin";

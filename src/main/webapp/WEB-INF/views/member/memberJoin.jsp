@@ -22,7 +22,7 @@
 	<div class="container mt-2">
 		<h2 class="mt-4">Member Join Page</h2>
 
-		<form id="frm" action="./memberJoin" method="post">
+		<form id="frm" action="./memberJoin" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="id">ID</label> <input type="text" class="form-control"
 					id="id" name="id">
@@ -53,6 +53,10 @@
 			<div class="form-group">
 				<label for="phone">Phone</label> <input type="text"
 					class="form-control etc" id="phone" name="phone">
+			</div>
+			<div class="form-group">
+				<label for="avator">avator</label> <input type="file"
+					class="form-control etc" id="avator" name="avator">
 			</div>
 			<input type="submit" class="btn btn-primary" id="btn" value="JOIN">
 			

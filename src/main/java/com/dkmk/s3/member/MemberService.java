@@ -2,6 +2,7 @@ package com.dkmk.s3.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 
 
@@ -22,9 +23,12 @@ public class MemberService {
 	public MemberDTO memberLogin(MemberDTO memberDTO)throws Exception{
 		return memberDAO.memberLogin(memberDTO);
 	}
-	
-	public int memberJoin(MemberDTO memberDTO)throws Exception{
-		return memberDAO.memberJoin(memberDTO);
+												//파일에 대한 정보 avator에 있으
+							//문자				2진데이터
+	public int memberJoin(MemberDTO memberDTO, MultipartFile avator)throws Exception{
+		//avator.getBytes(); 여기에 2진데이터 들어있는 거임
+		return 0;
+		// return memberDAO.memberJoin(memberDTO); 
 	}
 	
 
