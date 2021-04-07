@@ -20,6 +20,11 @@ public class MemberDAO {
 	private SqlSession sqlSession;
 	
 	private final String NAMESPACE= "com.dkmk.s3.member.MemberDAO";
+	
+	public int setFileInsert(MemberFileDTO memberFileDTO)throws Exception{
+		int result = sqlSession.insert(NAMESPACE+".setFileInsert", memberFileDTO);
+		return result;
+	}
 			
 	public int memberUpdate(MemberDTO memberDTO)throws Exception{
 		//id를 제외하고 나머지 수정

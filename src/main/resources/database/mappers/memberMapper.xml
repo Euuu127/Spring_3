@@ -8,6 +8,10 @@
 		update member set pw=#{pw}, name=#{name}, email=#{email}, phone=#{phone} where id=#{id}
 	</update>
 
+	<insert id="setFileInsert" parameterType="MemberFileDTO">
+		insert into memberFile values (FN_SEQ.nextval, #{id}, #{fileName}, #{originName})
+	</insert>
+
 	<delete id="memberDelete" parameterType="MemberDTO">
 		delete member where id=#{id}
 	</delete>
