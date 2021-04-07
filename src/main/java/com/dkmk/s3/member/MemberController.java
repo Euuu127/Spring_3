@@ -78,8 +78,8 @@ public class MemberController {
 	public void memberJoin()throws Exception{}
 	
 	@RequestMapping(value="memberJoin", method = RequestMethod.POST)
-	public String memberJoin(MemberDTO memberDTO, MultipartFile avator, Model model)throws Exception{
-		int result = memberService.memberJoin(memberDTO, avator);
+	public String memberJoin(MemberDTO memberDTO, MultipartFile avator, Model model, HttpSession session)throws Exception{
+		int result = memberService.memberJoin(memberDTO, avator, session);
 	
 		System.out.println(avator.getName()); //파라미터명
 		System.out.println(avator.getOriginalFilename()); //upload할 때 파일명
