@@ -67,11 +67,13 @@ public class MemberService {
 		System.out.println("UUID : "+fileName);
 		
 	//	5. HDD에 파일 저장	
-		file = new File(file, name);
+	//	file = new File(file, name);
 	//		1) FileCopyUtils 클래스의 copy 메서드 사용
-		FileCopyUtils.copy(avator.getBytes(), file);
+	//	FileCopyUtils.copy(avator.getBytes(), file);
 		
 	//		2) MultipartFile 클래스의 메서드 사용	
+		file = new File(file, fileName);
+		avator.transferTo(file);
 		
 		
 		
