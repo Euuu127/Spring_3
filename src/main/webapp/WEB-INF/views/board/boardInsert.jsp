@@ -10,6 +10,11 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <c:import url="../template/bootStrap.jsp"></c:import>
+<style type="text/css">
+	#sample{
+		/* display: none; */
+	}
+</style>
 <title>title</title>
 </head>
 <body>
@@ -35,14 +40,25 @@
 			</div>
 
 			<input type="button" id="add" value="ADD" class="btn btn-danger">
+			<input type="button" id="del" value="DELETE" class="btn btn-danger">
 			<div id="files"></div>
 
 			<input type="button" id="btn" value="WRITE" class="btn btn-primary">
 		</form>
 	</div>
+	
 	<div id="sample">
-		<div class="form-group">
-			<input type="file" class="form-control-file border" name="file">
+		<div class="input-group">
+			<div class="custom-file">
+				<input type="file" class="custom-file-input" id="inputGroupFile04"
+					aria-describedby="inputGroupFileAddon04"> <label
+					class="custom-file-label" for="inputGroupFile04">Choose
+					file</label>
+			</div>
+			<div class="input-group-append delete">
+				<input class="btn btn-outline-secondary" type="button"
+					id="inputGroupFileAddon04" value="Delete">
+			</div>
 		</div>
 	</div>
 
