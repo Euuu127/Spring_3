@@ -8,6 +8,7 @@
 	<!-- 별칭으로 주고 싶은 데이터타입을 풀패키지로 적어주기 -->
 		<typeAlias type="com.dkmk.s3.member.MemberDTO" alias="MemberDTO"/> 
 		<typeAlias type="com.dkmk.s3.member.MemberFileDTO" alias="MemberFileDTO"/> 
+		<typeAlias type="com.dkmk.s3.board.BoardFileDTO" alias="BoardFileDTO"/> 
 		<typeAlias type="com.dkmk.s3.bankbook.BankBookDTO" alias="BankBookDTO"/>
 		<typeAlias type="com.dkmk.s3.account.AccountDTO" alias="AccountDTO"/>
 		<typeAlias type="com.dkmk.s3.board.notice.NoticeDTO" alias="NoticeDTO"/>

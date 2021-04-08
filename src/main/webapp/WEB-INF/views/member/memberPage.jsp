@@ -12,7 +12,8 @@
 	<h3> NAME : ${member.name}</h3>
 	<h3> PHONE : ${member.phone}</h3>
 	<h3> EMAIL : ${member.email}</h3>
-	
+	<h3><img alt="" src="../resources/upload/member/${member.memberFileDTO.fileName}"> </h3> 
+													<!-- ㄴmemberDTO -->
 	<a href="./memberUpdate">회원정보수정</a>
 	<a href="./memberDelete">탈퇴</a>
 	<a href="../account/accountList">계좌관리</a>

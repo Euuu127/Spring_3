@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 public class FileManager {
 	
-	public void save(String name, MultipartFile multipartFile, HttpSession session)throws Exception{
+	public String save(String name, MultipartFile multipartFile, HttpSession session)throws Exception{
 		//1. 경로 설정 //avator.getBytes(); 여기에 2진데이터 들어있는 거임
 		String path = session.getServletContext().getRealPath("resources/upload/"+name);
 		System.out.println(path);
@@ -35,8 +35,12 @@ public class FileManager {
 		
 		//3. HDD에 저장
 		file = new File(file, fileName);
+	//	a. FileCopyUtils	
 //		FileCopyUtils.copy(multipartFile.getBytes(), file);
+	//	b. MultipartFile	
 		multipartFile.transferTo(file);
+		
+		return fileName;
 		
 		
 		

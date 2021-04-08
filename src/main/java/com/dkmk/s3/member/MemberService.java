@@ -32,14 +32,24 @@ public class MemberService {
 	}
 	
 	public MemberDTO memberLogin(MemberDTO memberDTO)throws Exception{
-		return memberDAO.memberLogin(memberDTO);
+		memberDTO = memberDAO.memberLogin(memberDTO);
+//		MemberFileDTO memberFileDTO = memberDAO.memberLoginFile(memberDTO);
+//		memberDTO.setMemberFileDTO(memberFileDTO);
+		return memberDTO;
 	}
 												//파일에 대한 정보 avator에 있으
 							//문자				2진데이터
 	public int memberJoin(MemberDTO memberDTO, MultipartFile avator, HttpSession session)throws Exception{
-		fileManager.save("member", avator, session);
+		String fileName=fileManager.save("member", avator, session);
+		MemberFileDTO memberFileDTO = new MemberFileDTO();
+		memberFileDTO.setId(memberDTO.getId());
+		memberFileDTO.setOriginName(avator.getOriginalFilename());
+		memberFileDTO.setFileName(fileName);
+		
+		int result = memberDAO.memberJoin(memberDTO);
+		result=memberDAO.setFileInsert(memberFileDTO);
 
-		return 0;
+		return result;
 		// return memberDAO.memberJoin(memberDTO); 
 	}
 	

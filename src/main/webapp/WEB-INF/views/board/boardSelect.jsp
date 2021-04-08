@@ -19,6 +19,10 @@
 		<h3>Title : ${dto.title}</h3>
 		<h3>Writer : ${dto.writer}</h3>
 		<h3>Contents : ${dto.contents}</h3>
+		
+		<c:forEach items="${dto.noticeFiles}" var="file">
+			<a href="../resources/upload/"></a>
+		</c:forEach>
 
 		<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
 		<a href="#" id="del" class="btn btn-info">Delete</a>

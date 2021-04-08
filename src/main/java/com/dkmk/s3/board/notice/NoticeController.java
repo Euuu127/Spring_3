@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.dkmk.s3.board.BoardDTO;
 import com.dkmk.s3.util.Pager;
@@ -93,8 +95,10 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "noticeInsert", method = RequestMethod.POST)
-	public String setInsert(BoardDTO boardDTO, Model model)throws Exception{
-		int result = noticeService.setInsert(boardDTO);
+	public String setInsert(BoardDTO boardDTO, Model model, MultipartFile [] files)throws Exception{
+		
+		int result = noticeService.setInsert(boardDTO, files);
+		
 		
 		String message="등록 실패";
 		
