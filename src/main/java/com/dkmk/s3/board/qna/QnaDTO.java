@@ -1,8 +1,10 @@
 package com.dkmk.s3.board.qna;
 
 import java.sql.Date;
+import java.util.List;
 
 import com.dkmk.s3.board.BoardDTO;
+import com.dkmk.s3.board.BoardFileDTO;
 
 public class QnaDTO extends BoardDTO{ //상속!
 	
@@ -10,6 +12,16 @@ public class QnaDTO extends BoardDTO{ //상속!
 	private long step;
 	private long depth;
 	
+	private List<BoardFileDTO> boardFiles;
+	
+	
+	
+	public List<BoardFileDTO> getBoardFiles() {
+		return boardFiles;
+	}
+	public void setBoardFiles(List<BoardFileDTO> boardFiles) {
+		this.boardFiles = boardFiles;
+	}
 	public long getRef() {
 		return ref;
 	}
