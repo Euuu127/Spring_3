@@ -18,6 +18,14 @@ public class CommentsController {
 	@Autowired
 	private CommentsService commentsService;
 	
+	@PostMapping("commentsDelete") //([]) <- parameter 이름이 같은데 값을 여러개 받는 거
+	public void commentsDelete(int [] commentNum)throws Exception{
+		System.out.println("starts");
+	
+		System.out.println("finish");
+	}
+	
+	
 	@PostMapping("commentsInsert")
 	public ModelAndView setInsert(CommentsDTO commentsDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
