@@ -51,20 +51,14 @@
 
 
 	<script type="text/javascript">
-		$("#btn2").click(function() {
-			$("#result").prepend('<li>GO</li>');
-		});
-
-		for (let i = 1; i < 13; i++) {
-			$("#mon").append("<option>" + i + "</option>");
-		}
-		$("#d1").click(function(){
-			console.log("parent");
+		$("#btn2").click(function(){
+			$.get("./test?num=3", function(data){//get메소드로 (URL)보내겟으
+				console.log(data);
+				$("#d2").html(data);
+				
+			}); 
 		});
 		
-		$("#d2").click(function(){
-			console.log("child");
-		});
 		
 	</script>
 
