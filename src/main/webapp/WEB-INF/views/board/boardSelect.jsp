@@ -20,9 +20,14 @@
 		<h3>Writer : ${dto.writer}</h3>
 		<h3>Contents : ${dto.contents}</h3>
 		
-		<c:forEach items="${dto.noticeFiles}" var="file">
-			<a href="../resources/upload/"></a>
+		<c:forEach items="${dto.boardFiles}" var="file">
+			<a href="../resources/upload/${board}/${file.fileName}">${file.originName}</a>
 		</c:forEach>
+		
+		<!-- 댓글 출력 -->
+		<div id="comments" title="${dto.num}">
+			
+		</div>
 
 		<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
 		<a href="#" id="del" class="btn btn-info">Delete</a>
@@ -37,7 +42,7 @@
 		</form>
 
 	</div>
-
+	<script type="text/javascript" src="../resources/jquery/comments.js"></script>
 	<script type="text/javascript">
 		const del = document.getElementById("del");
 		const frm = document.getElementById("frm");

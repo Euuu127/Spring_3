@@ -33,7 +33,7 @@ btn.addEventListener("click", function(){
 });
 
 //*************  ID 체크  ************ */
-id.addEventListener("blur", function(){
+/*id.addEventListener("blur", function(){
 	let dm = "6글자 미만입니다";
 	let c = "r1"
 	if(id.value.length>5){
@@ -46,6 +46,14 @@ id.addEventListener("blur", function(){
 	idResult.innerHTML=dm;
 	idResult.setAttribute("class",c);
 	
+});*/
+
+//*************  ID 중복확인  ************ */
+$("#id").blur(function(){
+	let id = $("#id").val();
+	$.get("./memberIdCheck?id="+id, function(result){
+		alert(result=='0');
+	});
 });
 
 //*************  PW 체크  ************ */

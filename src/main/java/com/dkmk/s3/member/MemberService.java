@@ -23,6 +23,10 @@ public class MemberService {
 	@Autowired //주입~
 	private FileManager fileManager;
 	
+	public MemberDTO memberIdCheck(MemberDTO memberDTO)throws Exception{
+		return memberDAO.memberIdCheck(memberDTO);
+	}
+	
 	public int memberUpdate(MemberDTO memberDTO)throws Exception{
 		return memberDAO.memberUpdate(memberDTO);
 	}

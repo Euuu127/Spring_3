@@ -4,6 +4,11 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!-- mapper schema -->
     
 <mapper namespace="com.dkmk.s3.member.MemberDAO">
+	
+	<select id="memberIdCheck" parameterType="MemberDTO" resultType="MemberDTO">
+		select id from member where id=#{id}
+	</select>
+
 	<update id="memberUpdate" parameterType="MemberDTO">
 		update member set pw=#{pw}, name=#{name}, email=#{email}, phone=#{phone} where id=#{id}
 	</update>
