@@ -28,7 +28,22 @@
 		<div id="comments" title="${dto.num}">
 			
 		</div>
-
+		
+		<div>
+			<div class="form-group">
+ 				<label for="usr">Name:</label>
+				<input type="text" class="form-control" id="writer">
+			</div>
+		
+			<div class="form-group">
+  				<label for="comment">Comment:</label>
+  				<textarea class="form-control" rows="5" id="contents"></textarea>
+			</div>
+			
+			<button type="button" class="btn btn-success" id="write">Success</button>
+		</div>
+		
+		
 		<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
 		<a href="#" id="del" class="btn btn-info">Delete</a>
 
