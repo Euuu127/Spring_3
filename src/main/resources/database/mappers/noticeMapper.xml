@@ -5,6 +5,14 @@
 
 <mapper namespace="com.dkmk.s3.board.notice.NoticeDAO">
 
+	<select id="getFileSelect" parameterType="BoardFileDTO">
+		select * from noticeFiles where fileNum=#{fileNum}
+	</select>
+
+	<delete id="serFileDelete" parameterType="BoardFileDTO">
+		delete noticeFiles where fileNum=#{fileNum}
+	</delete>
+
 	<insert id="setFileInsert" parameterType="BoardFileDTO">
 		insert into noticeFiles values(file_seq.nextval, #{num},#{fileName},#{originName})
 	</insert>

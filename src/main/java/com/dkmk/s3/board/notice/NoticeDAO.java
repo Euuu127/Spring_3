@@ -19,6 +19,14 @@ public class NoticeDAO implements BoardDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.dkmk.s3.board.notice.NoticeDAO.";
 	
+	public BoardFileDTO getFileSelect(BoardFileDTO boardFileDTO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getFileSelect", boardFileDTO);
+	}
+	
+	public int setFileDelete(BoardFileDTO boardFileDTO)throws Exception{
+		return sqlSession.delete(NAMESPACE+"setFileDelete", boardFileDTO);
+	}
+	
 	@Override
 	public long getTotalCount(Pager pager)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getTotalCount", pager);

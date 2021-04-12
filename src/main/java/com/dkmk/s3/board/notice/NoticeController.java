@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dkmk.s3.board.BoardDTO;
+import com.dkmk.s3.board.BoardFileDTO;
 import com.dkmk.s3.util.Pager;
 
 import oracle.jdbc.proxy.annotation.Post;
@@ -28,6 +29,17 @@ public class NoticeController {
 	
 	@Autowired
 	private NoticeService noticeService;
+	
+	@GetMapping("fileDelete")
+	public ModelAndView serFileDelete(BoardFileDTO boardFileDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+
+		int result = noticeService.setFileDelete(boardFileDTO);
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+		
+	}
 	
 	@PostMapping("noticeUpdate")
 	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv)throws Exception {

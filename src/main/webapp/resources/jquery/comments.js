@@ -12,6 +12,7 @@ $("#comments").on("click", "#remove", function(){
 		}
 	});
 	
+	
 	$.ajax({
 		type: "post",
 		url:"../comments/commentsDelete",
