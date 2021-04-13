@@ -5,7 +5,7 @@
 
 <mapper namespace="com.dkmk.s3.board.notice.NoticeDAO">
 
-	<select id="getFileSelect" parameterType="BoardFileDTO">
+	<select id="getFileSelect" parameterType="BoardFileDTO" resultType="BoardFileDTO">
 		select * from noticeFiles where fileNum=#{fileNum}
 	</select>
 
