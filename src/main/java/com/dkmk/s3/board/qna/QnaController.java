@@ -25,7 +25,7 @@ public class QnaController {
 	
 	@PostMapping
 	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv)throws Exception{
-		int result = qnaService.setUpdate(boardDTO);
+		int result = qnaService.setUpdate(boardDTO, null);
 
 		if(result>0) {
 			//성공하면 리스트로 이동
