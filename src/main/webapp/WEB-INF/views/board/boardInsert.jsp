@@ -4,28 +4,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--  
+<c:import url="../template/bootStrap.jsp"></c:import> -->
 
-<c:import url="../template/bootStrap.jsp"></c:import>
+<!-- summernote  -->
+<link
+	href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<!-- ------------ -->
 <style type="text/css">
-	#sample{
-		/* display: none; */
-	}
+#sample {
+	display: none;
+}
 </style>
-<title>title</title>
+
 </head>
 <body>
-	<c:import url="../template/header.jsp"></c:import>
+	<!-- <c:import url="../template/header.jsp"></c:import> -->
 
 	<div class="container">
-		<h2>${board}form</h2>
-		<form id="frm" action="./${board}Insert" method="post" enctype="multipart/form-data">
+		<h2>${shipping}form</h2>
+		<form id="frm" action="./${shipping}Insert" method="post"
+			enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="writer">Writer:</label> <input type="text"
-					readonly="readonly" value="${member.id}"
+					readonly="readonly" value="${shipping.id}"
 					class="form-control myCheck" id="writer" name="writer">
 			</div>
 			<div class="form-group">
@@ -40,20 +47,17 @@
 			</div>
 
 			<input type="button" id="add" value="ADD" class="btn btn-danger">
-			<input type="button" id="del" value="DELETE" class="btn btn-danger">
-			<div id="files"></div>
+
+			<div id="files" title="0"></div>
 
 			<input type="button" id="btn" value="WRITE" class="btn btn-primary">
 		</form>
 	</div>
-	
 	<div id="sample">
 		<div class="input-group">
 			<div class="custom-file">
-				<input type="file" class="custom-file-input" id="inputGroupFile04"
-					aria-describedby="inputGroupFileAddon04"> <label
-					class="custom-file-label" for="inputGroupFile04">Choose
-					file</label>
+				<input type="file" id="inputGroupFile04"
+					class="form-control-file border" name="files">
 			</div>
 			<div class="input-group-append delete">
 				<input class="btn btn-outline-secondary" type="button"
@@ -62,7 +66,10 @@
 		</div>
 	</div>
 
+<!--  -->
 	<script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
 	<script type="text/javascript" src="../resources/jquery/fileAdd.js"></script>
+	<script type="text/javascript" src="../resources/jquery/summerFile.js"></script>
+
 </body>
 </html>
