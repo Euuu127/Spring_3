@@ -14,19 +14,19 @@
 <title>Home</title>
 <!-- 스크립트 태그의 위치는 상관 X -->
 <style type="text/css">
-	#d1 {
+#d1 {
 	width: 200px;
 	height: 200px;
 	background-color: red;
 	overflow: hidden;
-	}
-	
-	#d2{
-	width:50px;
+}
+
+#d2 {
+	width: 50px;
 	height: 50px;
 	background-color: yellow;
 	margin: 75px auto;
-	}
+}
 </style>
 </head>
 <body>
@@ -44,24 +44,23 @@
 	<select id="mon">
 
 	</select>
-	
+
 	<div id="d1">
 		<div id="d2"></div>
 	</div>
 
+	<div id="map" style="width: 500px; height: 400px;"></div>
 
 	<script type="text/javascript">
-		$("#btn2").click(function(){
-			$.get("./test?num=3", function(data){//get메소드로 (URL)보내겟으
-				console.log(data);
-				$("#d2").html(data);
-				
-			}); 
-		});
-		
-		
-	</script>
+		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+		var options = { //지도를 생성할 때 필요한 기본 옵션
+			center : new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+			level : 3
+		//지도의 레벨(확대, 축소 정도)
+		};
 
+		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+	</script>
 
 </body>
 </html>
