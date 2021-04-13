@@ -24,15 +24,14 @@
 
 </head>
 <body>
-	<!-- <c:import url="../template/header.jsp"></c:import> -->
+	<c:import url="../template/header.jsp"></c:import>
 
-	<div class="container">
-		<h2>${shipping}form</h2>
-		<form id="frm" action="./${shipping}Insert" method="post"
-			enctype="multipart/form-data">
+<div class="container">
+		<h2>${board}form</h2>
+		<form id="frm" action="./${board}Insert" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="writer">Writer:</label> <input type="text"
-					readonly="readonly" value="${shipping.id}"
+					readonly="readonly" value="${member.id}"
 					class="form-control myCheck" id="writer" name="writer">
 			</div>
 			<div class="form-group">
@@ -47,7 +46,7 @@
 			</div>
 
 			<input type="button" id="add" value="ADD" class="btn btn-danger">
-
+			
 			<div id="files" title="0"></div>
 
 			<input type="button" id="btn" value="WRITE" class="btn btn-primary">
